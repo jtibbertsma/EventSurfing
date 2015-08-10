@@ -45,7 +45,7 @@ of this project.
 
 [Details][phase-two]
 
-I'll fill in more details or 3-5 next weekend.
+I'll fill in more details for phases 3-5 next weekend.
 
 ### Phase 3: Forms for User Creation and Event Creation (1 day)
 I'll devote a day to creating nice forms tocreate new users and events. I'll also
