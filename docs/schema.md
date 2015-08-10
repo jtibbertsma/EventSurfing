@@ -20,7 +20,9 @@ column name  | data type | details
 id           | integer   | not null, primary key
 traveller_id | integer   | not null, foreign key (references users)
 dest_id      | integer   | not null, foreign key (references cities)
-body         | string    |
+description  | text      |
+start_time   | date      | not null
+end_time     | date      | not null
 
 ## cities
 column name | data type | details
