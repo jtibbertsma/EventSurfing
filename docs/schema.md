@@ -29,7 +29,7 @@ end_time     | date      | not null
 column name | data type | details
 ------------|-----------|-----------------------
 id          | integer   | not null, primary key
-name        | string    | not null, unique
+name        | string    | not null
 region      | string    |
 country     | string    | not null
 latitude    | float     | not null
