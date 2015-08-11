@@ -11,8 +11,8 @@ class SessionsController < ApplicationController
 
     if @user
       redirect_to root_url
-    else
       login!
+    else
       @user = User.new
       render :new
     end
