@@ -1,0 +1,38 @@
+<div class="row">
+  <nav class="col-xs-3 user-show-sidebar">
+    <div class="fixed">
+      <div class="avatar-holder"></div>
+    </div>
+
+    <ul class="nav nav-stacked fixed">
+      <li><a href="#users/<%= user.id %>">About</a></li>
+      <li><a href="#users/<%= user.id %>"><%= user.escape("name") %>'s Home</a></li>
+    </ul>
+  </nav>
+
+  
+  <div class="col-xs-8">
+    <div class="show-header">
+      <h1><%= user.escape("name") %></h1>
+      <h4>Location will go here</h4>
+    </div>
+
+    <div class="hosting-status shadow-box">
+      <h3>Hosting Status will go here</h3>
+    </div>
+
+    <div class="shadow-box">
+      <h4>Overview</h4>
+      <p>Overview will go here</p>
+    </div>
+
+    <div class="shadow-box user-show-about">
+      <h4>About Me</h4>
+      <% if (user.escape("description_head")) { %>
+        <p><%= user.escape("description_head") %></p>
+      <% } else { %>
+        <p><%= user.escape("name") %> hasn't written anything yet! </p>
+      <% } %>
+    </div>
+  </div>
+</div>
