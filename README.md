@@ -2,7 +2,7 @@
 
 [Heroku link][heroku]
 
-[heroku]: http://www.example.com
+[heroku]: http://pad-crashing.herokuapp.com/
 
 ## Minimum Viable Product
 PadCrashing is a clone of CouchSurfing built on Rails and Backbone. Users can:
