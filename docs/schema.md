@@ -6,6 +6,7 @@ column name | data type | details
 id          | integer   | not null, primary key
 creator_id  | integer   | not null, foreign key (references users)
 title       | string    | not null
+spots       | integer   |
 
 ## event_joins
 column name | data type | details
