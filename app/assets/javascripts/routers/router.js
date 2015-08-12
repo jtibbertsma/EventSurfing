@@ -43,7 +43,7 @@ PadCrashing.Routers.Router = Backbone.Router.extend({
         debugger;
       }
     });
-  };
+  },
 
   _swapView: function (view) {
     this.currentView && this.currentView.remove();

@@ -1,4 +1,9 @@
 <div id="content"></div>
 <script type="text/javascript">
-  $(PadCrashing.initialize);
+  $(function () {
+    var id = <%= current_user.id %>;
+    PadCrashing.initialize();
+    PadCrashing.CurrentUser = new PadCrashing.Models.User({ id: id });
+    PadCrashing.CurrentUser.fetch();
+  });
 </script>

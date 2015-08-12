@@ -1,4 +1,4 @@
-PadCrashing.Collections.Events = Backbone.Collection..extend({
+PadCrashing.Collections.Events = Backbone.Collection.extend({
   url: "events/",
   model: PadCrashing.Models.Event,
 
