@@ -11,14 +11,14 @@
   </nav>
 
   
-  <div class="col-xs-8">
+  <div class="col-xs-7">
     <div class="show-header">
       <h1><%= user.escape("name") %></h1>
       <h4>Location will go here</h4>
     </div>
 
     <div class="hosting-status shadow-box">
-      <h3>Hosting Status will go here</h3>
+      <h4>Hosting Status will go here</h4>
     </div>
 
     <div class="shadow-box">
@@ -28,8 +28,8 @@
 
     <div class="shadow-box user-show-about">
       <h4>About Me</h4>
-      <% if (user.escape("description_head")) { %>
-        <p><%= user.escape("description_head") %></p>
+      <% if (user.get("description_head")) { %>
+        <%= user.writeDescriptionParagraphs() %>
       <% } else { %>
         <p><%= user.escape("name") %> hasn't written anything yet! </p>
       <% } %>

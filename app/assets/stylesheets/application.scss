@@ -23,7 +23,7 @@
 }
 
 body {
-  margin-top: 60px;
+  margin: 60px 0 100px 0;
 }
 
 .show-header {
@@ -37,6 +37,17 @@ body {
   margin-top: 30px;
   padding: 20px;
   border-radius: 5px;
+  background: #eee;
+}
+
+.shadow-box > p {
+  margin-bottom: 20px;
+}
+
+.shadow-box > h4 {
+  color: #036;
+  border-bottom: thin #036 solid;
+  padding-bottom: 10px;
 }
 
 .avatar-holder {
@@ -44,6 +55,7 @@ body {
   height: 200px;
   width: 200px;
   border: thin black solid;
+  margin-bottom: 20px;
 }
 
 .user-show-sidebar ul > li  {
