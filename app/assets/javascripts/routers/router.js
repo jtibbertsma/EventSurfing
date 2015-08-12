@@ -1,11 +1,20 @@
 PadCrashing.Routers.Router = Backbone.Router.extend({
   routes: {
     '': 'blankPage',
-    'users/:id': 'userShow'
+    'users/:id': 'userShow',
+    'events': 'eventsIndex'
   },
 
   initialize: function (options) {
     this.$rootEl = options.$rootEl;
+  },
+
+  eventCollection: function () {
+    if (!this._eventCollection) {
+      this._eventCollection = new PadCrashing.Collections.Events();
+    }
+
+    return this._eventCollection;
   },
 
   blankPage: function () {
@@ -23,6 +32,18 @@ PadCrashing.Routers.Router = Backbone.Router.extend({
       }
     });
   },
+
+  eventsIndex: function () {
+    var coll = this.eventCollection();
+    var view = new PadCrashing.Views.EventIndex({ collection: coll });
+    this._swapView(view);
+    coll.fetch({
+      error: function () {
+        alert("Shit went wrong in events index");
+        debugger;
+      }
+    });
+  };
 
   _swapView: function (view) {
     this.currentView && this.currentView.remove();
