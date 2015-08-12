@@ -31,6 +31,18 @@ body {
   margin: 0 auto;
 }
 
+.events-index-header {
+  border-bottom: 5px #BBB solid;
+  > h3 {
+    color: #036;
+    margin-top: 0;
+  }
+}
+
+.index-item {
+  border-bottom: thin #BBB solid;
+}
+
 .show-header {
   padding-left: 10px;
 }
@@ -43,16 +55,14 @@ body {
   padding: 20px;
   border-radius: 5px;
   background: #eee;
-}
-
-.shadow-box > p {
-  margin-bottom: 20px;
-}
-
-.shadow-box > h4 {
-  color: #036;
-  border-bottom: thin #036 solid;
-  padding-bottom: 10px;
+  > p {
+    margin-bottom: 20px;
+  }
+  > h4 {
+    color: #036;
+    border-bottom: thin #036 solid;
+    padding-bottom: 10px;
+  }
 }
 
 .avatar-holder {

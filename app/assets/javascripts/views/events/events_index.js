@@ -11,13 +11,13 @@ PadCrashing.Views.EventsIndex = Backbone.CompositeView.extend({
   },
 
   addEventIndexItem: function (eventModel) {
-    this.addSubview(".shadow-box", new PadCrashing.Views.EventIndexItem({
+    this.addSubview(".index-item-holder", new PadCrashing.Views.EventIndexItem({
       model: eventModel
     }));
   },
 
   render: function () {
-    this.$el.html(this.template());
+    this.$el.html(this.template({ num_events: this.collection.length }));
     this.attachSubviews();
     return this;
   }
