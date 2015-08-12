@@ -31,6 +31,25 @@ body {
   margin: 0 auto;
 }
 
+.index-item {
+  padding-bottom: 10px;
+  > .index-item-text {
+    > p {
+      margin-bottom: 0;
+      color: #777;
+      font-weight: 200;
+    }
+    > h4 {
+      transition: color 500ms;
+    }
+    > h4:hover {
+      cursor: pointer;
+      color: #4e7fb6;
+    }
+  }
+  
+}
+
 .events-index-header {
   border-bottom: 5px #BBB solid;
   > h3 {
