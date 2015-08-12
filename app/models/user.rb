@@ -1,3 +1,17 @@
+# == Schema Information
+#
+# Table name: users
+#
+#  id               :integer          not null, primary key
+#  name             :string           not null
+#  email            :string           not null
+#  session_token    :string           not null
+#  password_digest  :string           not null
+#  created_at       :datetime         not null
+#  updated_at       :datetime         not null
+#  description_head :text
+#
+
 class User < ActiveRecord::Base
   has_many :organized_events, class_name: :Event, foreign_key: :organizer_id
   has_many :event_joins, foreign_key: :attender_id

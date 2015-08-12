@@ -1,3 +1,18 @@
+# == Schema Information
+#
+# Table name: events
+#
+#  id           :integer          not null, primary key
+#  organizer_id :integer          not null
+#  title        :string           not null
+#  description  :text             not null
+#  start        :datetime         not null
+#  end          :datetime
+#  spots        :integer
+#  created_at   :datetime         not null
+#  updated_at   :datetime         not null
+#
+
 class Event < ActiveRecord::Base
   belongs_to :organizer, class_name: :User
   has_many :event_joins
