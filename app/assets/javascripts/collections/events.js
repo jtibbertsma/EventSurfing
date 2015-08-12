@@ -1,5 +1,5 @@
 PadCrashing.Collections.Events = Backbone.Collection.extend({
-  url: "events/",
+  url: "api/events/",
   model: PadCrashing.Models.Event,
 
   getOrFetch: function (id) {

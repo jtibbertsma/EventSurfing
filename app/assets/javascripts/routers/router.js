@@ -28,7 +28,6 @@ PadCrashing.Routers.Router = Backbone.Router.extend({
     user.fetch({
       error: function () {
         alert("Shit went wrong in user show");
-        debugger;
       }
     });
   },
@@ -40,7 +39,6 @@ PadCrashing.Routers.Router = Backbone.Router.extend({
     coll.fetch({
       error: function () {
         alert("Shit went wrong in events index");
-        debugger;
       }
     });
   },
