@@ -12,6 +12,7 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require moment
 //= require underscore
 //= require backbone
 //= require pad_crashing
