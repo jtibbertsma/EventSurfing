@@ -34,6 +34,7 @@ body {
 .index-item {
   padding-bottom: 10px;
   > .index-item-text {
+    float: left;
     > p {
       margin-bottom: 0;
       color: #777;
@@ -41,13 +42,37 @@ body {
     }
     > h4 {
       transition: color 500ms;
-    }
-    > h4:hover {
-      cursor: pointer;
-      color: #4e7fb6;
+      &:hover {
+        cursor: pointer;
+        color: #990033;
+      }
     }
   }
-  
+  > .index-item-join {
+    float: right;
+    margin-top: 35px;
+    > button {
+      position: relative;
+      width: 80px;
+      border-radius: 20px;
+      color: white;
+      background: #27709b;
+      box-shadow: -2px 2px 10px 0px #7A7B7C;
+      transition: background 500ms;
+      &:hover, &:active {
+        background: #990033;
+      }
+      &:active {
+        color: white;
+        box-shadow: none;
+        top: 2px;
+        left: -2px;
+      }
+      &:focus {
+        outline: none;
+      }
+    }
+  }
 }
 
 .events-index-header {
