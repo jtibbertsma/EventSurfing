@@ -6,8 +6,8 @@
 #  organizer_id :integer          not null
 #  title        :string           not null
 #  description  :text             not null
-#  start        :datetime         not null
-#  end          :datetime
+#  start_time   :datetime         not null
+#  end_time     :datetime
 #  spots        :integer
 #  created_at   :datetime         not null
 #  updated_at   :datetime         not null
