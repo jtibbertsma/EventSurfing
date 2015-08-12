@@ -25,6 +25,6 @@ u = User.create(
     description: description,
     start_time: Faker::Date.forward(10),
     end_time: Faker::Date.between(10.days.from_now, 15.days.from_now),
-    spots: rand(5,15)
+    spots: rand(5...15)
   )
 end

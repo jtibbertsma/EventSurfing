@@ -22,7 +22,7 @@ class Event < ActiveRecord::Base
     :organizer,
     :title,
     :description,
-    :start,
+    :start_time,
     presence: true
   )
 
