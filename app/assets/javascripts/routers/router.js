@@ -35,7 +35,7 @@ PadCrashing.Routers.Router = Backbone.Router.extend({
 
   eventsIndex: function () {
     var coll = this.eventCollection();
-    var view = new PadCrashing.Views.EventIndex({ collection: coll });
+    var view = new PadCrashing.Views.EventsIndex({ collection: coll });
     this._swapView(view);
     coll.fetch({
       error: function () {

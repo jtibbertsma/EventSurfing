@@ -1,4 +1,4 @@
-PadCrashing.Views.EventIndex = Backbone.CompositeView.extend({
+PadCrashing.Views.EventsIndex = Backbone.CompositeView.extend({
   template: JST["events/index"],
   className: "container",
 
@@ -11,7 +11,7 @@ PadCrashing.Views.EventIndex = Backbone.CompositeView.extend({
   },
 
   addEventIndexItem: function (eventModel) {
-    this.addSubview(".col-xs-6", new PadCrashing.Views.EventIndexItem({
+    this.addSubview(".shadow-box", new PadCrashing.Views.EventIndexItem({
       model: eventModel
     }));
   },
