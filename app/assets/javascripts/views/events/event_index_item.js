@@ -7,6 +7,7 @@ PadCrashing.Views.EventIndexItem = Backbone.View.extend({
   },
 
   initialize: function () {
+    debugger;
     this.listenTo(this.model, "sync", this.render);
   },
 
