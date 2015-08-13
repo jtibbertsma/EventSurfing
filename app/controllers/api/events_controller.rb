@@ -11,4 +11,9 @@ class Api::EventsController < Api::ApiController
       render json: {}, status: :not_found
     end
   end
+
+  def current
+    @events = current_user.joined_events
+    render :index
+  end
 end
