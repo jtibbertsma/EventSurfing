@@ -25,14 +25,16 @@ PadCrashing.Views.EventJoinButton = Backbone.View.extend({
   },
 
   unjoinEvent: function () {
-    this.join.destroy();
+    this.model.join.destroy({
+      success: function () {
+        delete this.model.join;
+        this.render();
+      }.bind(this)
+    });
   },
 
   initialize: function () {
     this.listenTo(this.model, "sync", this.render);
-    if (this.model.join) {
-      this.listenTo(this.model.join, "destroy", this.render);
-    }
   },
 
   render: function () {
