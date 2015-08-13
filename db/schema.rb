@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150812175002) do
+ActiveRecord::Schema.define(version: 20150813193045) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -24,6 +24,7 @@ ActiveRecord::Schema.define(version: 20150812175002) do
   end
 
   add_index "event_joins", ["attender_id"], name: "index_event_joins_on_attender_id", using: :btree
+  add_index "event_joins", ["event_id", "attender_id"], name: "index_event_joins_on_event_id_and_attender_id", unique: true, using: :btree
   add_index "event_joins", ["event_id"], name: "index_event_joins_on_event_id", using: :btree
 
   create_table "events", force: :cascade do |t|
