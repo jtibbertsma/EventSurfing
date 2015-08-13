@@ -28,35 +28,35 @@ PadCrashing.Routers.Router = Backbone.Router.extend({
 
   userShow: function (id) {
     var user = new PadCrashing.Models.User({ id: id });
-    var view = new PadCrashing.Views.UserShow({ model: user });
-    this._swapView(view);
     user.fetch({
       error: function () {
         alert("Shit went wrong in user show");
       }
     });
+    var view = new PadCrashing.Views.UserShow({ model: user });
+    this._swapView(view);
   },
 
   eventsIndex: function () {
     var events = new PadCrashing.Collections.Events();
-    var view = new PadCrashing.Views.EventsIndex({ collection: events });
-    this._swapView(view);
     events.fetch({
       error: function () {
         alert("Shit went wrong in events index");
       }
     });
+    var view = new PadCrashing.Views.EventsIndex({ collection: events });
+    this._swapView(view);
   },
 
   eventShow: function (id) {
     var eventModel = new PadCrashing.Models.Event({ id: id });
-    var view = new PadCrashing.Views.EventShow({ model: eventModel });
-    this._swapView(view);
     eventModel.fetch({
       error: function () {
         alert("Shit went wrong in event show");
       }
     });
+    var view = new PadCrashing.Views.EventShow({ model: eventModel });
+    this._swapView(view);
   },
 
   _swapView: function (view) {

@@ -2,7 +2,7 @@ class Api::EventsController < Api::ApiController
   before_action :ensure_logged_in
 
   def index
-    @events = Event.all
+    @events = Event.includes(:attenders).all
   end
 
   def show

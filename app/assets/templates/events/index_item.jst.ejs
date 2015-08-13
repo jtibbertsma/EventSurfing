@@ -5,9 +5,9 @@
   <p><%= event.get("num_attenders") %> attending</p>
 </div>
 <div class="index-item-join">
-  <% if (PadCrashing.CURRENT_USER.id !== event.organizer_id) { %>
-    <button class="btn btn-default join">Join</button>
-  <% } else { %>
+  <% if (current.contains(event)) { %>
     <button class="btn btn-default unjoin">Unjoin</button>
+  <% } else { %>
+    <button class="btn btn-default join">Join</button>
   <% } %>
 </div>
