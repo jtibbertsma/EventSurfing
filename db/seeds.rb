@@ -7,7 +7,7 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
 def make_description
-  5.times.inject([]) do |memo, _|
+  rand(2...7).times.inject([]) do |memo, _|
     memo << Faker::Lorem.paragraph(10)
   end
   .join("\n")

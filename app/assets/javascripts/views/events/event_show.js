@@ -1,6 +1,6 @@
 PadCrashing.Views.EventShow = Backbone.CompositeView.extend({
   template: JST["events/show"],
-  className: "container",
+  className: "container-fluid",
 
   initialize: function () {
     this.addSubview(
