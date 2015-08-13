@@ -1,6 +1,6 @@
 <div class="row-fluid">
   <div class="col-xs-3">
-    <div class="shadow-box">
+    <div class="primary-box">
       <div class="attender-header">
         <h4><%= event.escape("num_attenders") %> Going</h4>
         <% if (event.get("spots_remaining") > 0) { %>
@@ -16,7 +16,7 @@
     </div>
   </div>
 
-  <div class="col-xs-5">
+  <div class="col-xs-7">
     <div class="event-show-head">
       <div class="event-show-head-background">
         <div>
@@ -32,7 +32,7 @@
       <p>Location link will go here</p>
     </div>
 
-    <div class="shadow-box">
+    <div class="primary-box">
       <h4>Description</h4>
       <%= PadCrashing.Utils.writeParagraphs(event.escape("description")) %>
     </div>

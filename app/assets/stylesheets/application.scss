@@ -22,7 +22,14 @@
   padding: 0;
 }
 
+html {
+}
+
 body {
+  background-image: url(http://3.bp.blogspot.com/-cvvht2jJe-4/UnqMe497PnI/AAAAAAAAAe4/h13s0rBhDmM/s1600/Beautiful+Wood+House+Wallpaper-HD+Landscape+Nature+Wallpaper.jpg);
+  background-size: cover;
+  background-position: center center;
+  background-attachment: fixed;
   margin: 60px 0 100px 0;
 }
 
@@ -91,7 +98,7 @@ body {
   padding-left: 10px;
 }
 
-.shadow-box {
+.primary-box {
   width: 100%;
   border: thin black solid;
   box-shadow: -5px 5px 10px 0px #7A7B7C;
