@@ -5,4 +5,5 @@ unless bare_bones
   json.spots_remaining event.spots && event.spots - event.attenders.count
   json.description event.description
   json.organizer_name event.organizer.name
+  json.organizer_id event.organizer.id
 end
