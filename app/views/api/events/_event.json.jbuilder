@@ -1,9 +1,9 @@
-json.extract! event, :id, :title, :start_time, :end_time
+json.extract! event, :id, :title, :start_time, :end_time, :organizer_id
 json.num_attenders event.attenders.count
 
 join = event.event_joins.where(attender_id: current_user.id)
 
-if join
+unless join.empty?
   json.join join.first
 end
 
