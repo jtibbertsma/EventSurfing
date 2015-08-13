@@ -14,7 +14,7 @@ class EventJoin < ActiveRecord::Base
   belongs_to :attender, class_name: :User
 
   validates :attender, :event, presence: true
-  vaidate :cant_join_an_event_with_no_spots
+  validate :cant_join_an_event_with_no_spots
 
   private
 
