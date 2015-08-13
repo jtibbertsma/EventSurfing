@@ -14,4 +14,13 @@ class EventJoin < ActiveRecord::Base
   belongs_to :attender, class_name: :User
 
   validates :attender, :event, presence: true
+  vaidate :cant_join_an_event_with_no_spots
+
+  private
+
+  def cant_join_an_event_with_no_spots
+    if event.spots == 0
+      errors.add(:event, "has no spots left")
+    end
+  end
 end
