@@ -2,7 +2,14 @@
   <div class="col-xs-3">
     <div class="shadow-box">
       <div class="attender-header">
-
+        <h4><%= event.escape("num_attenders") %> Going</h4>
+        <% if (event.get("spots_remaining") > 0) { %>
+          <div class="spots-remaining">
+            <p>
+              <%= event.escape("spots_remaining") %> spots remaining!
+            </p>
+          </div>
+        <% } %>
       </div>
 
       <div class="attenders"></div>
@@ -10,6 +17,20 @@
   </div>
 
   <div class="col-xs-6">
+    <div class="event-show-head">
+      <div class="event-show-head-background">
+        <div>
+          <h3><%= event.escape("title") %></h3>
+          <h5>Organized by <span class="oraganizer-name"></span></h5>
+        </div>
+      </div>
+      <p class="event-when"><%= event.when() %></p>
+      <p>Location link will go here</p>
+    </div>
 
+    <div class="shadow-box">
+      <h4>Description</h4>
+      <%= PadCrashing.Utils.writeParagraphs(event.escape("description")) %>
+    </div>
   </div>
 </div>
