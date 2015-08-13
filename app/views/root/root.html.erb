@@ -1,10 +1,5 @@
 <div id="content"></div>
 <script type="text/javascript">
-  $(function () {
-    PadCrashing.CURRENT_USER = {
-      id: <%= current_user.id %>
-    };
-    PadCrashing.initialize();
-  });
+  $(PadCrashing.initialize);
 </script>
 <div class="test"></div>
