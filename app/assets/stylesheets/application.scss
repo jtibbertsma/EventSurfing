@@ -54,27 +54,28 @@ body {
   > .index-item-join {
     float: right;
     margin-top: 15px;
-    > button {
-      width: 100px;
-      position: relative;
-      border-radius: 20px;
-      color: white;
-      background: #27709b;
-      box-shadow: -2px 2px 10px 0px #7A7B7C;
-      transition: background 500ms;
-      &:hover, &:active {
-        background: #990033;
-      }
-      &:active {
-        color: white;
-        box-shadow: none;
-        top: 2px;
-        left: -2px;
-      }
-      &:focus {
-        outline: none;
-      }
-    }
+  }
+}
+
+.btn.btn-default.join, .btn.btn-default.unjoin {
+  width: 100px;
+  position: relative;
+  border-radius: 20px;
+  color: white;
+  background: #27709b;
+  box-shadow: -2px 2px 10px 0px #7A7B7C;
+  transition: background 500ms;
+  &:hover, &:active {
+    background: #990033;
+  }
+  &:active {
+    color: white;
+    box-shadow: none;
+    top: 2px;
+    left: -2px;
+  }
+  &:focus {
+    outline: none;
   }
 }
 
