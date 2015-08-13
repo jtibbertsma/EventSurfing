@@ -1,5 +1,5 @@
 <% if (event.join) { %>
-  <% if (event.get("organizer_id") !== event.join.get("attender_id")) %>
+  <% if (event.get("organizer_id") !== event.join.get("attender_id")) { %>
     <button class="btn btn-default unjoin">Unjoin</button>
   <% } %>
 <% } else { %>
