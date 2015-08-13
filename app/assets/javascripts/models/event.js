@@ -12,9 +12,9 @@ PadCrashing.Models.Event = Backbone.Model.extend({
       ).format('MMMM Do YYYY, h:mm a');
     }
 
-    if (payload.joined) {
-      this.joined = new PadCrashing.Models.EventJoin(payload.joined);
-      delete payload.joined
+    if (payload.join) {
+      this.join = new PadCrashing.Models.EventJoin(payload.join);
+      delete payload.join
     }
 
     if (payload.spots_remaining !== 0 && !payload.spots_remaining) {
