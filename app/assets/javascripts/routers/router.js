@@ -1,24 +1,29 @@
 PadCrashing.Routers.Router = Backbone.Router.extend({
   routes: {
-    '': 'blankPage',
+    '': 'eventsIndex',
     'users/:id': 'userShow',
-    'events': 'eventsIndex'
+    'events': 'eventsIndex',
+    'events/:id': 'eventShow',
+    'test': 'test'
   },
 
   initialize: function (options) {
     this.$rootEl = options.$rootEl;
   },
 
-  eventCollection: function () {
-    if (!this._eventCollection) {
-      this._eventCollection = new PadCrashing.Collections.Events();
-    }
+  test: function () {
+    var user = new PadCrashing.Models.User();
+    user.fetch({
+      url: "api/users/1",
+      error: function () {
+        alert("It goes to error if don't pass an id.")
+      },
 
-    return this._eventCollection;
-  },
-
-  blankPage: function () {
-    this.currentView && this.currentView.remove();
+      success: function () {
+        alert("Why are you here??");
+        console.log(user);
+      }
+    })
   },
 
   userShow: function (id) {
@@ -33,12 +38,23 @@ PadCrashing.Routers.Router = Backbone.Router.extend({
   },
 
   eventsIndex: function () {
-    var coll = this.eventCollection();
-    var view = new PadCrashing.Views.EventsIndex({ collection: coll });
+    var events = new PadCrashing.Collections.Events();
+    var view = new PadCrashing.Views.EventsIndex({ collection: events });
     this._swapView(view);
-    coll.fetch({
+    events.fetch({
       error: function () {
         alert("Shit went wrong in events index");
+      }
+    });
+  },
+
+  eventShow: function (id) {
+    var eventModel = new PadCrashing.Models.Event({ id: id });
+    var view = new PadCrashing.Views.EventShow({ model: eventModel });
+    this._swapView(view);
+    eventModel.fetch({
+      error: function () {
+        alert("Shit went wrong in event show");
       }
     });
   },
