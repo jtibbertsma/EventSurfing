@@ -12,7 +12,7 @@ PadCrashing is a clone of CouchSurfing built on Rails and Backbone. Users can:
 - [x] Create accounts
 - [x] Create sessions (log in)
 - [ ] Create events
-- [ ] Join events
+- [x] Join events
 - [ ] Search for events
 - [ ] Change status between hosting/not hosting
 - [ ] Make travel plans
