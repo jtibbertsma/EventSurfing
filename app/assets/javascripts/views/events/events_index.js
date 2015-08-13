@@ -8,15 +8,11 @@ PadCrashing.Views.EventsIndex = Backbone.CompositeView.extend({
     }.bind(this));
     this.listenTo(this.collection, "sync add remove", this.render);
     this.listenTo(this.collection, "add", this.addEventIndexItem);
-    this.currentUserEvents = new PadCrashing.Collections.Events();
-    this.currentUserEvents.fetch({
-      url: "api/events/current"
-    });
   },
 
   addEventIndexItem: function (eventModel) {
     this.addSubview(".index-item-holder", new PadCrashing.Views.EventIndexItem({
-      model: eventModel, currentUserEvents: this.currentUserEvents
+      model: eventModel
     }));
   },
 

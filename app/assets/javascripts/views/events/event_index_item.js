@@ -6,16 +6,13 @@ PadCrashing.Views.EventIndexItem = Backbone.View.extend({
     "click h4": "gotoShow"
   },
 
-  initialize: function (options) {
-    this.currentUserEvents = options.currentUserEvents;
+  initialize: function () {
     this.listenTo(this.model, "sync", this.render);
-    this.listenTo(this.currentUserEvents, "sync", this.render);
   },
 
   render: function () {
     this.$el.html(this.template({
-      event: this.model,
-      current: this.currentUserEvents
+      event: this.model
     }));
     return this;
   },
