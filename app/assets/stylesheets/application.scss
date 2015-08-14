@@ -60,7 +60,15 @@ body {
   border-bottom: thin black solid;
   padding-bottom: 5px;
   > .attender-title {
-    
+    font-size: 16px;
+    font-weight: 600;
+    color: #990033;
+    padding-bottom: 5px;
+  }
+  > .spots-remaining {
+    background: #990033;
+    color: white;
+    padding: 2px;
   }
 }
 
