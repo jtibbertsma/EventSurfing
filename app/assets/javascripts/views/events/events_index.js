@@ -3,9 +3,7 @@ PadCrashing.Views.EventsIndex = Backbone.CompositeView.extend({
   className: "container",
 
   initialize: function () {
-    this.collection.each(function (eventModel) {
-      this.addEventIndexItem(eventModel);
-    }.bind(this));
+    this.collection.each(this.addEventIndexItem.bind(this));
     this.listenTo(this.collection, "sync add remove", this.render);
     this.listenTo(this.collection, "add", this.addEventIndexItem);
   },
