@@ -56,6 +56,14 @@ body {
   }
 }
 
+.attender-header {
+  border-bottom: thin black solid;
+  padding-bottom: 5px;
+  > .attender-title {
+    
+  }
+}
+
 .btn.btn-default.join, .btn.btn-default.unjoin {
   width: 100px;
   position: relative;
@@ -97,11 +105,15 @@ body {
 .event-show-head {
   border: thin black solid;
   > .event-show-head-background {
-    background: black;
+    background: gray;
     height: 300px;
-    > div {
-      > h3, > h5 {
-        color: white;
+    > .show-head-text {
+      position: relative;
+      top: 75%;
+      color: white;
+      padding: 10px;
+      > h3 {
+        margin-top: 0;
       }
     }
   }

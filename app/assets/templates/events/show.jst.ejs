@@ -2,13 +2,11 @@
   <div class="col-xs-3">
     <div class="primary-box">
       <div class="attender-header">
-        <h4><%= event.escape("num_attenders") %> Going</h4>
+        <span class="attender-title"><%= event.escape("num_attenders") %> Going</span>
         <% if (event.get("spots_remaining") > 0) { %>
-          <div class="spots-remaining">
-            <p>
-              <%= event.escape("spots_remaining") %> spots remaining!
-            </p>
-          </div>
+          <span class="spots-remaining">
+            <%= event.escape("spots_remaining") %> spots left!
+          </span>
         <% } %>
       </div>
 
@@ -17,7 +15,7 @@
   </div>
 
   <div class="col-xs-7">
-    <div>
+    <div class="event-show-head">
       <div class="event-show-head-background">
         <div class="show-head-text">
           <h3><%= event.escape("title") %></h3>
