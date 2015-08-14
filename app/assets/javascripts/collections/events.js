@@ -18,13 +18,20 @@ PadCrashing.Collections.Events = Backbone.Collection.extend({
     return this._joined;
   },
 
+  _subParse: function (collection, array) {
+    array.forEach(function (value) {
+      PadCrashing.Models.Event.prototype._parseTimes(value);
+    });
+    collection.set(array);
+  },
+
   parse: function (payload) {
     if (payload.organizing) {
-      this.organizing().set(payload.organizing);
+      this._subParse(this.organizing(), payload.organizing);
     }
 
     if (payload.joined) {
-      this.joined().set(payload.joined);
+      this._subParse(this.joined(), payload.joined);
     }
 
     if (typeof payload.main === "undefined") {

@@ -1,6 +1,9 @@
 PadCrashing.Views.EventIndexItemText = Backbone.View.extend({
   template: JST["events/index_item_text"],
-  className: "clearfix",
+
+  events: {
+    "click h4": "gotoShow"
+  },
 
   initialize: function () {
     this.listenTo(this.model, "sync", this.render);
@@ -9,5 +12,9 @@ PadCrashing.Views.EventIndexItemText = Backbone.View.extend({
   render: function () {
     this.$el.html(this.template({ event: this.model }));
     return this;
+  },
+
+  gotoShow: function () {
+    Backbone.history.navigate("#events/" + this.model.id, { trigger: true });
   }
 });

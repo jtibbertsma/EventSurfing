@@ -2,10 +2,6 @@ PadCrashing.Views.EventIndexItem = Backbone.CompositeView.extend({
   template: JST["events/index_item"],
   className: "index-item clearfix",
 
-  events: {
-    "click h4": "gotoShow"
-  },
-
   initialize: function (options) {
     this.joined = options.joined;
     this.listenTo(this.model, "sync", this.render);
@@ -28,9 +24,5 @@ PadCrashing.Views.EventIndexItem = Backbone.CompositeView.extend({
     }));
     this.attachSubviews();
     return this;
-  },
-
-  gotoShow: function () {
-    Backbone.history.navigate("#events/" + this.model.id, { trigger: true });
   }
 });
