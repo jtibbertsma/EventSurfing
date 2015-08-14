@@ -48,8 +48,15 @@ body {
 
 .index-item {
   padding-bottom: 10px;
-  > .index-item-text {
-    float: left;
+  > .index-item-join {
+    float: right;
+    margin-top: 15px;
+  }
+}
+
+.index-item-text {
+  float: left;
+  > div {
     > p {
       margin-bottom: 0;
       color: #777;
@@ -61,10 +68,6 @@ body {
         color: #990033;
       }
     }
-  }
-  > .index-item-join {
-    float: right;
-    margin-top: 15px;
   }
 }
 

@@ -11,7 +11,11 @@ PadCrashing.Views.EventIndexItem = Backbone.CompositeView.extend({
     this.addSubview(
       ".index-item-join",
       new PadCrashing.Views.EventJoinButton({ model: this.model })
-    )
+    );
+    this.addSubview(
+      ".index-item-text",
+      new PadCrashing.Views.EventIndexItemText({ model: this.model })
+    );
   },
 
   render: function () {
