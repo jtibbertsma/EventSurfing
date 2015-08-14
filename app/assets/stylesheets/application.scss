@@ -94,6 +94,19 @@ body {
   padding-left: 10px;
 }
 
+.event-show-head {
+  border: thin black solid;
+  > .event-show-head-background {
+    background: black;
+    height: 300px;
+    > div {
+      > h3, > h5 {
+        color: white;
+      }
+    }
+  }
+}
+
 .primary-box {
   width: 100%;
   border: thin black solid;
