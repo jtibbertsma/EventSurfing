@@ -10,12 +10,30 @@ PadCrashing.Views.EventsIndex = Backbone.CompositeView.extend({
     this.collection.each(this.addEventIndexItem.bind(this));
     this.listenTo(this.collection, "sync add remove", this.render);
     this.listenTo(this.collection, "add", this.addEventIndexItem);
+
+    this.addSubview(
+      ".events-organizing",
+      new PadCrashing.Views.EventSubIndex({
+        collection: this.collection.organizing()
+      })
+    );
+
+    this.addSubview(
+      ".events-joined",
+      new PadCrashing.Views.EventSubIndex({
+        collection: this.collection.joined()
+      })
+    );
   },
 
   addEventIndexItem: function (eventModel) {
-    this.addSubview(".index-item-holder", new PadCrashing.Views.EventIndexItem({
-      model: eventModel
-    }));
+    this.addSubview(
+      ".index-item-holder",
+      new PadCrashing.Views.EventIndexItem({
+        model: eventModel,
+        joined: this.collection.joined()
+      })
+    );
   },
 
   render: function () {
@@ -27,6 +45,6 @@ PadCrashing.Views.EventsIndex = Backbone.CompositeView.extend({
   },
 
   renderForm: function () {
-    
+    console.log("'Create new event' button was pressed");
   }
 });

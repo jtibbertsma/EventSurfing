@@ -2,12 +2,12 @@ PadCrashing.Collections.Events = Backbone.Collection.extend({
   url: "api/events/",
   model: PadCrashing.Models.Event,
 
-  organized: function () {
-    if (!this._organized) {
-      this._organized = new PadCrashing.Collections.Events();
+  organizing: function () {
+    if (!this._organizing) {
+      this._organizing = new PadCrashing.Collections.Events();
     }
 
-    return this._organized;
+    return this._organizing;
   },
 
   joined: function () {
@@ -19,8 +19,8 @@ PadCrashing.Collections.Events = Backbone.Collection.extend({
   },
 
   parse: function (payload) {
-    if (payload.organized) {
-      this.organized().set(payload.organized);
+    if (payload.organizing) {
+      this.organized().set(payload.organizing);
     }
 
     if (payload.joined) {

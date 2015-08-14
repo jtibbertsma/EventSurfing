@@ -7,7 +7,6 @@ PadCrashing.Views.EventJoinButton = Backbone.View.extend({
   },
 
   joinEvent: function () {
-    // Create a new EventJoin and redirect to the event show page
     var join = new PadCrashing.Models.EventJoin();
     join.save({ event_id: this.model.id }, {
       error: function () {
@@ -19,7 +18,8 @@ PadCrashing.Views.EventJoinButton = Backbone.View.extend({
       }.bind(this),
 
       success: function () {
-        Backbone.history.navigate("events/" + this.model.id, { trigger: true });
+        this.model.trigger("sync");
+        this.joined.add(this.model);
       }.bind(this)
     })
   },
@@ -28,12 +28,14 @@ PadCrashing.Views.EventJoinButton = Backbone.View.extend({
     this.model.join.destroy({
       success: function () {
         delete this.model.join;
+        this.joined.remove(this.model);
         this.render();
       }.bind(this)
     });
   },
 
-  initialize: function () {
+  initialize: function (options) {
+    this.joined = options.joined;
     this.listenTo(this.model, "sync", this.render);
   },
 

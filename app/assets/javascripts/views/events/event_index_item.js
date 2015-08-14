@@ -6,11 +6,15 @@ PadCrashing.Views.EventIndexItem = Backbone.CompositeView.extend({
     "click h4": "gotoShow"
   },
 
-  initialize: function () {
+  initialize: function (options) {
+    this.joined = options.joined;
     this.listenTo(this.model, "sync", this.render);
     this.addSubview(
       ".index-item-join",
-      new PadCrashing.Views.EventJoinButton({ model: this.model })
+      new PadCrashing.Views.EventJoinButton({
+        model: this.model,
+        joined: this.joined
+      })
     );
     this.addSubview(
       ".index-item-text",
