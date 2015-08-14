@@ -11,4 +11,10 @@ end
 unless bare_bones
   json.description event.description
   json.organizer_name event.organizer.name
+
+  json.attenders do
+    json.array! event.attenders do |attender|
+      json.extract! attender, :id, :name
+    end
+  end
 end
