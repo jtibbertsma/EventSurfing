@@ -20,7 +20,7 @@ PadCrashing.Collections.Events = Backbone.Collection.extend({
 
   parse: function (payload) {
     if (payload.organizing) {
-      this.organized().set(payload.organizing);
+      this.orgaining().set(payload.organizing);
     }
 
     if (payload.joined) {
