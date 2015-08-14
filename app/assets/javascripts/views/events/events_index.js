@@ -1,6 +1,6 @@
 PadCrashing.Views.EventsIndex = Backbone.CompositeView.extend({
   template: JST["events/index"],
-  className: "container",
+  className: "container-fluid",
 
   // events: {
   //   "click"

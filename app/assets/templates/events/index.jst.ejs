@@ -1,8 +1,25 @@
-<div class="events-index">
-  <div class="primary-box">
-    <div class="events-index-header">
-      <h3><%= num_events %> Events Found</h3>
+<div class="row-fluid">
+  <div class="col-xs-4">
+    <div class="primary-box">
+      <h3>Events I'm Organizing</h3>
+      <div class="events-organizing"></div>
+      <div class="create-new-event">
+        <button class="btn btn-default new-event-btn">Create New Event</button>
+      </div>
     </div>
-    <div class="index-item-holder"></div>
+
+    <div class="primary-box">
+      <h3>Events I've Joined</h3>
+      <div class="events-joined"></div>
+    </div>
+  </div>
+
+  <div class="col-xs-7">
+    <div class="primary-box">
+      <div class="events-index-header">
+        <h3><%= num_events %> Events Found</h3>
+      </div>
+      <div class="index-item-holder"></div>
+    </div>
   </div>
 </div>
