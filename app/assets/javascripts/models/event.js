@@ -1,10 +1,17 @@
 PadCrashing.Models.Event = Backbone.Model.extend({
   urlRoot: "api/events",
 
+  attenders: function () {
+    if (!this._attenders) {
+      this._attenders = new PadCrashing.Collections.Users();
+    }
+
+    return this._attenders;
+  },
+
   _parseAttenders: function (payload) {
     if (payload.attenders) {
-      this.attenders = new PadCrashing.Models.Users();
-      this.attenders.set(payload.attenders);
+      this.attenders().set(payload.attenders);
       delete payload.attenders;
     }
   },
