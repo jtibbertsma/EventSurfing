@@ -2,9 +2,9 @@ PadCrashing.Views.EventsIndex = Backbone.CompositeView.extend({
   template: JST["events/index"],
   className: "container-fluid",
 
-  // events: {
-  //   "click"
-  // },
+  events: {
+    "click .new-event-btn": "renderForm"
+  },
 
   initialize: function () {
     this.collection.each(this.addEventIndexItem.bind(this));
@@ -24,5 +24,9 @@ PadCrashing.Views.EventsIndex = Backbone.CompositeView.extend({
     }));
     this.attachSubviews();
     return this;
+  },
+
+  renderForm: function () {
+    
   }
 });

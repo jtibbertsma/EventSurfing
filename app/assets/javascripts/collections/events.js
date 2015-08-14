@@ -2,20 +2,35 @@ PadCrashing.Collections.Events = Backbone.Collection.extend({
   url: "api/events/",
   model: PadCrashing.Models.Event,
 
-  // getOrFetch: function (id) {
-  //   var model = this.get(id);
-  //   if (!model) {
-  //     model = new this.model({ id: id });
-  //     this.add(model);
-  //     model.fetch({
-  //       error: function () {
-  //         this.remove(id);
-  //       }
-  //     }.bind(this))
-  //   } else {
-  //     model.fetch();
-  //   }
+  organized: function () {
+    if (!this._organized) {
+      this._organized = new PadCrashing.Collections.Events();
+    }
 
-  //   return model;
-  // }
+    return this._organized;
+  },
+
+  joined: function () {
+    if (!this._joined) {
+      this._joined = new PadCrashing.Collections.Events();
+    }
+
+    return this._joined;
+  },
+
+  parse: function (payload) {
+    if (payload.organized) {
+      this.organized().set(payload.organized);
+    }
+
+    if (payload.joined) {
+      this.joined().set(payload.joined);
+    }
+
+    if (typeof payload.main === "undefined") {
+      return payload;
+    } else {
+      return payload.main;
+    }
+  }
 });
