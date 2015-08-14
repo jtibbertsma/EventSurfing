@@ -147,6 +147,21 @@ body {
   }
 }
 
+.create-new-event {
+  height: 100px;
+  > .btn.btn-default.new-event-btn {
+    height: 100%;
+    width: 100%;
+    background-image: linear-gradient(to bottom, #1e5799 0%, #2989D8 50%, #207CCA 51%, #7db9e8 100%);
+    color: white;
+    font-size: 20px;
+    transition: color 500ms;
+    &:focus {
+      outline: none;
+    }
+  }
+}
+
 .primary-box {
   width: 100%;
   border: thin black solid;
