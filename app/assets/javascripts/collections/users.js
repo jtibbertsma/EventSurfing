@@ -1,4 +1,4 @@
-PadCrashing.Collections.User = Backbone.Collection.extend({
+PadCrashing.Collections.Users = Backbone.Collection.extend({
   url: "api/users",
   model: PadCrashing.Models.User
 });
