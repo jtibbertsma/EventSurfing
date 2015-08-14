@@ -54,7 +54,7 @@ body {
   }
 }
 
-.index-item-text {
+.index-item-text, .sub-index-item-holder {
   float: left;
   > div {
     > p {
@@ -148,6 +148,9 @@ body {
 }
 
 .create-new-event {
+  padding-top: 20px;
+  margin-top: 10px;
+  border-top: thin #BBB solid;
   height: 100px;
   > .btn.btn-default.new-event-btn {
     height: 100%;

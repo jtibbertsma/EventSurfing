@@ -12,7 +12,7 @@ PadCrashing.Views.EventSubIndex = Backbone.CompositeView.extend({
 
   addIndexItemText: function (event) {
     this.addSubview(
-      ".index-item-holder",
+      ".sub-index-item-holder",
       new PadCrashing.Views.EventIndexItemText({ model: event })
     );
   },
