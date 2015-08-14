@@ -1,4 +1,4 @@
-PadCrashing.Views.AttenderIndexItem = Backbone.View.extend({
+PadCrashing.Views.AttenderListItem = Backbone.View.extend({
   template: JST["users/attender_list_item"],
   className: "attender-list-item",
 
