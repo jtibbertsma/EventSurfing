@@ -5,7 +5,14 @@ window.PadCrashing = {
   Routers: {},
   Utils: {},
   initialize: function() {
-    new PadCrashing.Routers.Router({ $rootEl: $("#content") });
+    // render navbar
+    var navbar = PadCrashing.navbar = new PadCrashing.Views.Navbar();
+    $("#page-header").html(navbar.render().$el);
+
+    // fire up router
+    new PadCrashing.Routers.Router({
+      $rootEl: $("#content")
+    });
     Backbone.history.start();
   }
 };

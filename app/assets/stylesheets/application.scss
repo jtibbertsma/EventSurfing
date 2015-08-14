@@ -22,11 +22,20 @@
   padding: 0;
 }
 
-body {
+.page-header {
+  background-image: url(http://moorepix.com/wp-content/uploads/2015/07/architecture-architecture-pictures-of-beautiful-modern-rustic-homes-ceramic-awesome-modern-country-house-with-a-classic-design-is-also-unique-decor-inspire-those-who-want-to-build-a-house.jpg);
+}
+
+.page-footer {
+  background-image: url(http://moorepix.com/wp-content/uploads/2015/07/architecture-architecture-pictures-of-beautiful-modern-rustic-homes-ceramic-awesome-modern-country-house-with-a-classic-design-is-also-unique-decor-inspire-those-who-want-to-build-a-house.jpg);
+}
+
+.page-header, .page-footer {
+  height: 600px;
   background-size: cover;
   background-position: center center;
   background-attachment: fixed;
-  margin: 0 0 40px 0;
+  margin: 0;
 }
 
 .events-index {
@@ -53,11 +62,15 @@ body {
   > .index-item-join {
     float: right;
     margin-top: 15px;
+    > div {
+      > button {
+        width: 100px;
+      }
+    }
   }
 }
 
 .btn.btn-default.join, .btn.btn-default.unjoin {
-  width: 100px;
   position: relative;
   border-radius: 20px;
   color: white;
@@ -109,6 +122,10 @@ body {
     border-bottom: thin #036 solid;
     padding-bottom: 10px;
   }
+}
+
+.bottom-margin {
+  margin-bottom: 40px;
 }
 
 .avatar-holder {
