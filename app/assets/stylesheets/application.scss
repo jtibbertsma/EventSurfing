@@ -29,18 +29,6 @@ body {
   margin: 60px 0 100px 0;
 }
 
-.avatar-holder {
-  background: #DDD;
-  height: 200px;
-  width: 200px;
-  border: thin black solid;
-  margin-bottom: 20px;
-}
-
-.user-show-sidebar ul > li  {
-  margin: 0;
-}
-
 .m-background {
   background: rgba(112, 106, 106, 0.5);
   position: absolute;
@@ -109,7 +97,7 @@ body {
 }
 
 .index-item {
-  border-bottom: thin #BBB solid;.index-item {
+  border-bottom: thin #BBB solid;
   padding-bottom: 10px;
   > .index-item-join {
     float: right;
@@ -189,6 +177,18 @@ body {
     border-bottom: thin #036 solid;
     padding-bottom: 10px;
   }
+}
+
+.avatar-holder {
+  background: #DDD;
+  height: 200px;
+  width: 200px;
+  border: thin black solid;
+  margin-bottom: 20px;
+}
+
+.user-show-sidebar ul > li  {
+  margin: 0;
 }
 
 $bgDefault      : #4e7fb6;
