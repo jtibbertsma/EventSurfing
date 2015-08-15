@@ -6,15 +6,20 @@ PadCrashing.Views.EventSubIndex = Backbone.CompositeView.extend({
 
   initialize: function () {
     this.collection.each(this.addIndexItemText.bind(this));
-    this.listenTo(this.collection, "add remove sync", this.render);
+    this.listenTo(this.collection, "add sync remove", this.render);
     this.listenTo(this.collection, "add", this.addIndexItemText);
+    this.listenTo(this.collection, "remove", this.removeIndexItemText);
   },
 
-  addIndexItemText: function (event) {
+  addIndexItemText: function (model) {
     this.addSubview(
       ".sub-index-item-holder",
-      new PadCrashing.Views.EventIndexItemText({ model: event })
+      new PadCrashing.Views.EventIndexItemText({ model: model })
     );
+  },
+
+  removeIndexItemText: function (model) {
+    this.removeModelSubview(".sub-index-item-holder", model);
   },
 
   render: function () {
