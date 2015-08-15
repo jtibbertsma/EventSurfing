@@ -1,6 +1,6 @@
 class Api::EventJoinsController < Api::ApiController
   def create
-    @event_join = EventJoin.create(
+    @event_join = EventJoin.new(
       event_id: params[:event_join][:event_id],
       attender: current_user
     )

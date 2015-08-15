@@ -3,7 +3,8 @@ json.num_attenders event.attenders.count
 
 json.spots_remaining event.spots_remaining
 
-if join = event.event_joins.where(attender_id: current_user.id).first
+join = event.event_joins.where(attender_id: current_user.id).first
+unless join.nil?
   json.join do
     json.extract! join, :id, :attender_id
   end
