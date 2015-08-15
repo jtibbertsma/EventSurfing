@@ -28,6 +28,12 @@ class Event < ActiveRecord::Base
 
   after_save :join_organizer
 
+  def spots_remaining
+    return nil if spots.nil?
+
+    spots - attenders.count
+  end
+
   private
 
   def join_organizer
