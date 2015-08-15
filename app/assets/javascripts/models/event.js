@@ -9,6 +9,22 @@ PadCrashing.Models.Event = Backbone.Model.extend({
     return this._attenders;
   },
 
+  adjustSpots: function (options) {
+    if (options && typeof options.decrement === "boolean") {
+      var spotsRemaining = this.get("spots_remaining");
+      var numAttending = this.get("num_attenders");
+      if (options.decrement) {
+        // join event
+        this.set("spots_remaining", spotsRemaining - 1);
+        this.set("num_attenders", numAttending + 1);
+      } else {
+        // unjoin event
+        this.set("spots_remaining", spotsRemaining + 1);
+        this.set("num_attenders", numAttending - 1);
+      }
+    }
+  },
+
   _parseAttenders: function (payload) {
     if (payload.attenders) {
       this.attenders().set(payload.attenders);
