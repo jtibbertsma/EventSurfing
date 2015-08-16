@@ -3,6 +3,10 @@ json.num_attenders event.attenders.count
 
 json.spots_remaining event.spots_remaining
 
+json.background do
+  json.extract! event.background, :image_url, :thumb_url
+end
+
 join = event.event_joins.where(attender_id: current_user.id).first
 unless join.nil?
   json.join do
