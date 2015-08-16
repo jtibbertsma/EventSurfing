@@ -55,7 +55,7 @@ PadCrashing.Views.EventJoinButton = Backbone.View.extend({
         // Add this model to the joined collection
         this.joined && this.joined.add(this.model);
 
-        // Add an event join model to the database
+        // Change the button to unjoin
         this.model.join = join;
         this.changeButton({ to: "unjoin" });
         this._working = false;
