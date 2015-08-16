@@ -2,7 +2,8 @@
   <div class="attender-title"><%= event.escape("num_attenders") %> Going</div>
   <% if (event.get("spots_remaining") > 0) { %>
     <div class="spots-remaining">
-      <%= event.escape("spots_remaining") %> spots left!
+      <%= event.escape("spots_remaining") %> 
+      <%= event.get("spots_remaining") === 1 ? "spot" : "spots" %> left!
     </div>
   <% } else if (event.get("spots_remaining") === 0) { %>
     <div class="spots-remaining-gray">No spots left...</div>
