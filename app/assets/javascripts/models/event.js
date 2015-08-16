@@ -51,10 +51,16 @@ PadCrashing.Models.Event = Backbone.Model.extend({
     }
   },
 
+  _parseBackground: function (payload) {
+    this.background = new PadCrashing.Models.Image(payload.background);
+    delete this.background;
+  },
+
   parse: function (payload) {
     this._parseAttenders(payload);
     this._parseTimes(payload);
     this._parseJoin(payload);
+    this._parseBackground(payload);
 
     if (payload.spots_remaining !== 0 && !payload.spots_remaining) {
       payload.spots_remaining = -1;
