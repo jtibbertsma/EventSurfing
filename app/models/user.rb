@@ -17,7 +17,7 @@ class User < ActiveRecord::Base
   has_many :event_joins, foreign_key: :attender_id, dependent: :destroy
   has_many :joined_events, through: :event_joins, source: :event
 
-  has_one :avatar, class_name: :Image, as: :imageable
+  has_one :avatar, class_name: :Image, as: :imageable, dependent: :destroy
 
   attr_reader :password
 
