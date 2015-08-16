@@ -14,6 +14,10 @@ gem 'bootstrap-sass'
 gem 'momentjs-rails'
 gem 'faker'
 
+group :production do
+  gem "rails_12factor"
+end
+
 group :development, :test do
   gem 'byebug'
   gem 'pry-rails'
