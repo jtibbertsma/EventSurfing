@@ -12,7 +12,8 @@ PadCrashing.Views.EventShow = Backbone.CompositeView.extend({
     this.addSubview(
       ".show-join",
       new PadCrashing.Views.EventJoinButton({
-        model: this.model
+        model: this.model,
+        attenders: this.model.attenders()
       })
     );
     this.listenTo(this.model, "sync", this.render);

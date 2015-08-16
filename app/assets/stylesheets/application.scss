@@ -46,26 +46,6 @@ body {
   left: 25%;
 }
 
-.attender-header {
-  border-bottom: thin black solid;
-  padding-bottom: 5px;
-  > .attender-title {
-    font-size: 16px;
-    font-weight: 600;
-    color: #990033;
-    padding-bottom: 5px;
-  }
-  > .spots-remaining {
-    background: #990033;
-    color: white;
-    padding: 2px;
-  }
-}
-
-.attender-list-item {
-  padding-bottom: 5px;
-}
-
 .btn.btn-default.join, .btn.btn-default.unjoin {
   width: 100px;
   position: relative;
@@ -127,7 +107,28 @@ body {
 }
 
 .show-join {
-  margin: 15px;
+  margin: 0 0 15px 15px;
+  float: left;
+}
+
+.attender-header {
+  border-bottom: thin black solid;
+  padding-bottom: 5px;
+  > .attender-title {
+    font-size: 16px;
+    font-weight: 600;
+    color: #990033;
+    padding-bottom: 5px;
+  }
+  > .spots-remaining {
+    background: #990033;
+    color: white;
+    padding: 2px;
+  }
+}
+
+.attender-list-item {
+  padding-bottom: 5px;
 }
 
 .event-show-head {
@@ -150,6 +151,10 @@ body {
   > p {
     padding-left: 10px;
   }
+}
+
+.event-when {
+  font-weight: 700;
 }
 
 .create-new-event {

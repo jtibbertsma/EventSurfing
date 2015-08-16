@@ -8,6 +8,7 @@ PadCrashing.Views.EventJoinButton = Backbone.View.extend({
 
   initialize: function (options) {
     this.joined = options.joined;
+    this.attenders = options.attenders;
     this.listenTo(this.model, "sync", this.render);
   },
 
@@ -28,13 +29,27 @@ PadCrashing.Views.EventJoinButton = Backbone.View.extend({
           success: function () {
             this.render();
             this._working = false;
-          }
+          }.bind(this)
         });
       }.bind(this),
 
       success: function () {
         // adjust spots_remaining and num_attending
         this.model.adjustSpots({ decrement: true });
+
+        // if we passed the attenders collection in, we need to update it.
+        // so we need to fetch the current user using the attender_id in
+        // the event join model
+        if (this.attenders) {
+          var currentUser = new PadCrashing.Models.User({
+            id: join.get("attender_id")
+          });
+          currentUser.fetch({
+            success: function () {
+              this.attenders.add(currentUser);
+            }.bind(this)
+          });
+        }
 
         // Add this model to the joined collection
         this.joined && this.joined.add(this.model);
@@ -52,13 +67,24 @@ PadCrashing.Views.EventJoinButton = Backbone.View.extend({
       return;
     }
     this._working = true;
+
     this.model.join.destroy({
       success: function () {
         // adjust spots_remaining and num_attending
         this.model.adjustSpots({ decrement: false });
 
-        // Delete this model from the joined collection and rerender
-        this.joined.remove(this.model);
+        // Remove this model from the joined collection if it's there
+        this.joined && this.joined.remove(this.model);
+
+        // Remove the current user from the attenders collection if it's there
+        if (this.attenders) {
+          var currentUser = new PadCrashing.Models.User({
+            id: this.model.join.get("attender_id")
+          });
+          this.attenders.remove(currentUser);
+        }
+
+        // delete the join model attribute from the main model and rerender
         delete this.model.join;
         this.render();
         this._working = false;
