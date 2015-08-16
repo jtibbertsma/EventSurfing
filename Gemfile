@@ -13,6 +13,8 @@ gem 'backbone-on-rails'
 gem 'bootstrap-sass'
 gem 'momentjs-rails'
 gem 'faker'
+gem 'cloudinary'
+gem 'figaro'
 
 group :production do
   gem "rails_12factor"
