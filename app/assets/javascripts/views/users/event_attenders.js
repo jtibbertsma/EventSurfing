@@ -5,6 +5,7 @@ PadCrashing.Views.EventAttenders = Backbone.CompositeView.extend({
     this.collection.each(this.addAttender.bind(this));
     this.listenTo(this.collection, "sync add remove", this.render);
     this.listenTo(this.collection, "add", this.addAttender);
+    this.listenTo(this.collection, "remove", this.removeAttender);
   },
 
   addAttender: function (attender) {
@@ -12,6 +13,10 @@ PadCrashing.Views.EventAttenders = Backbone.CompositeView.extend({
       ".attender-holder",
       new PadCrashing.Views.AttenderListItem({ model: attender })
     );
+  },
+
+  removeAttender: function (attender) {
+    this.removeModelSubview(".attender-holder", attender);
   },
 
   render: function () {

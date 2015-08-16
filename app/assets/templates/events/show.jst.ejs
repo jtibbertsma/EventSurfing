@@ -1,16 +1,7 @@
 <div class="row-fluid">
   <div class="col-xs-3">
     <div class="primary-box">
-      <div class="attender-header">
-        <div class="attender-title"><%= event.escape("num_attenders") %> Going</div>
-        <% if (event.get("spots_remaining") > 0) { %>
-          <div class="spots-remaining">
-            <%= event.escape("spots_remaining") %> spots left!
-          </div>
-        <% } %>
-      </div>
-
-      <div class="attenders"></div>
+      <div class="main-attender-list"></div>
     </div>
   </div>
 
@@ -28,6 +19,7 @@
       </div>
       <p class="event-when"><%= event.when() %></p>
       <p>Location link will go here</p>
+      <div class="show-join"></div>
     </div>
 
     <div class="primary-box">

@@ -126,11 +126,16 @@ body {
   padding-left: 10px;
 }
 
+.show-join {
+  margin: 15px;
+}
+
 .event-show-head {
   margin-top: 30px;
   border: thin black solid;
   > .event-show-head-background {
     background: gray;
+    margin-bottom: 10px;
     height: 300px;
     > .show-head-text {
       position: relative;
@@ -141,6 +146,9 @@ body {
         margin-top: 0;
       }
     }
+  }
+  > p {
+    padding-left: 10px;
   }
 }
 
