@@ -12,6 +12,7 @@ gem 'bcrypt', '~> 3.1.7'
 gem 'backbone-on-rails'
 gem 'bootstrap-sass'
 gem 'momentjs-rails'
+gem 'faker'
 
 group :development, :test do
   gem 'byebug'
@@ -20,6 +21,5 @@ group :development, :test do
   gem 'spring'
   gem 'better_errors'
   gem 'binding_of_caller'
-  gem 'faker'
   gem 'annotate'
 end
