@@ -20,13 +20,7 @@ class Event < ActiveRecord::Base
 
   has_one :background, class_name: :Image, as: :imageable
 
-  validates(
-    :organizer,
-    :title,
-    :description,
-    :start_time,
-    presence: true
-  )
+  validates :organizer, :title, :description, :start_time, presence: true
 
   after_save :join_organizer
 
