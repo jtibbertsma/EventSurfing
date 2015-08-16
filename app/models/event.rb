@@ -22,7 +22,7 @@ class Event < ActiveRecord::Base
 
   validates :organizer, :title, :description, :start_time, presence: true
 
-  before_save :default_background
+  after_save :default_background
   after_save :join_organizer
 
   def spots_remaining
