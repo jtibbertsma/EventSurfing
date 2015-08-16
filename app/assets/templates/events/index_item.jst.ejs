@@ -1,2 +1,9 @@
+<% if (event.background) { %>
+  <div
+    style="background-image:url(<%= event.background.escape('thumb_url') %>)"
+    class="event-thumb"
+  ></div>
+<% } %>
+
 <div class="index-item-text"></div>
 <div class="index-item-join"></div>
