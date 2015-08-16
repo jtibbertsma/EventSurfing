@@ -39,7 +39,8 @@ PadCrashing.Views.EventJoinButton = Backbone.View.extend({
 
         // if we passed the attenders collection in, we need to update it.
         // so we need to fetch the current user using the attender_id in
-        // the event join model
+        // the event join model. This causes the attenders list on the show
+        // page to rerender
         if (this.attenders) {
           var currentUser = new PadCrashing.Models.User({
             id: join.get("attender_id")
