@@ -15,5 +15,4 @@ class Image < ActiveRecord::Base
   belong_to :imageable, polymorphic: true
 
   validates :imageable, :image_url, :thumb_url, presence: true
-  validates :image_url, uniqueness: true
 end

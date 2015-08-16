@@ -7,7 +7,5 @@ class CreateImages < ActiveRecord::Migration
 
       t.timestamps null: false
     end
-
-    add_index :images, :image_url, unique: true
   end
 end
