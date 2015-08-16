@@ -20,7 +20,7 @@ unless bare_bones
 
   json.attenders do
     json.array! event.attenders do |attender|
-      json.extract! attender, :id, :name
+      json.partial! 'api/users/user', user: attender, bare_bones: true
     end
   end
 end

@@ -27,6 +27,7 @@ PadCrashing.Models.Event = Backbone.Model.extend({
 
   _parseAttenders: function (payload) {
     if (payload.attenders) {
+      payload.attenders = this.attenders().parse(payload.attenders);
       this.attenders().set(payload.attenders);
       delete payload.attenders;
     }
@@ -53,7 +54,7 @@ PadCrashing.Models.Event = Backbone.Model.extend({
 
   _parseBackground: function (payload) {
     this.background = new PadCrashing.Models.Image(payload.background);
-    delete this.background;
+    delete payload.background;
   },
 
   parse: function (payload) {

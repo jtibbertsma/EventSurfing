@@ -8,6 +8,11 @@ PadCrashing.Views.UserShow = Backbone.View.extend({
 
   render: function () {
     this.$el.html(this.template({ user: this.model }));
+
+    this.model.avatar && this.$(".avatar-holder").css(
+      "background-image",
+      "url(" + this.model.avatar.escape("image_url") + ")"
+    );
     return this;
   }
 });

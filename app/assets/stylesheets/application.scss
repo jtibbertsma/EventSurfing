@@ -122,7 +122,8 @@ body {
   }
   > .spots-remaining, .spots-remaining-gray {
     color: white;
-    padding: 2px;
+    padding: 5px;
+    border-radius: 5px;
   }
   > .spots-remaining {
     background: #990033;
@@ -134,6 +135,7 @@ body {
 
 .attender-list-item {
   padding-bottom: 5px;
+
 }
 
 .event-show-head {
@@ -143,6 +145,7 @@ body {
     background: gray;
     margin-bottom: 10px;
     height: 300px;
+    background-size: cover;
     > .show-head-text {
       position: relative;
       top: 75%;
@@ -199,10 +202,29 @@ body {
 
 .avatar-holder {
   background: #DDD;
+  background-size: cover;
   height: 200px;
   width: 200px;
   border: thin black solid;
   margin-bottom: 20px;
+}
+
+.attender-text {
+  margin-left: 62px;
+  > p, > h5 {
+    margin: 0;
+  }
+  > h5 {
+    margin-top: 20px;
+  }
+}
+
+.attender-thumb {
+  border-radius: 45px;
+  width: 60px;
+  height: 60px;
+  margin: 5px;
+  float: left;
 }
 
 .user-show-sidebar ul > li  {

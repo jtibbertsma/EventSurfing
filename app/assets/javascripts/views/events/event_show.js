@@ -22,6 +22,11 @@ PadCrashing.Views.EventShow = Backbone.CompositeView.extend({
   render: function () {
     this.$el.html(this.template({ event: this.model }));
     this.attachSubviews();
+
+    this.model.background && this.$(".event-show-head-background").css(
+      "background-image",
+      "url(" + this.model.background.escape("image_url") + ")"
+    );
     return this;
   }
 });

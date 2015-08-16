@@ -1,6 +1,12 @@
-<h5>
-  <a href="<%= '#users/' + attender.id %>">
-    <%= attender.escape("name") %>
-  </a>
-</h5>
-<p>Location will go here</p>
+<% if (attender.avatar) { %>
+  <img src="<%= attender.avatar.escape('thumb_url') %>" class="attender-thumb">
+<% } %>
+
+<div class="attender-text">
+  <h5>
+    <a href="<%= '#users/' + attender.id %>">
+      <%= attender.escape("name") %>
+    </a>
+  </h5>
+  <p>Location will go here</p>
+</div>
