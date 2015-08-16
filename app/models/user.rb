@@ -26,6 +26,7 @@ class User < ActiveRecord::Base
   validates :password, length: { minimum: 6, allow_nil: true }
 
   after_initialize :ensure_session_token
+  before_save :default_avatar
 
   def self.find_by_credentials(email, password)
     user = User.find_by_email(email)
@@ -55,5 +56,13 @@ class User < ActiveRecord::Base
 
   def ensure_session_token
     self.session_token ||= User.new_session_token
+  end
+
+  def default_avatar
+    avatar || Image.create(
+      image_url: "http://vic.iabc.com/wp-content/uploads/2013/04/default-user-image.png",
+      thumb_url: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQh8m1kcPPGnI3lDmIk_85tVkyPzCOz5GsTaglwcXhG8iwwGU2l",
+      imageable: self
+    )
   end
 end

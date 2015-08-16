@@ -22,6 +22,7 @@ class Event < ActiveRecord::Base
 
   validates :organizer, :title, :description, :start_time, presence: true
 
+  before_save :default_background
   after_save :join_organizer
 
   def spots_remaining
@@ -34,5 +35,13 @@ class Event < ActiveRecord::Base
 
   def join_organizer
     EventJoin.create(attender: organizer, event: self)
+  end
+
+  def default_background
+    background || Image.create(
+      image_url: "http://batescreative.com/wp-content/themes/batescreative_02/library/img/default-page-background.jpg",
+      thumb_url: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTIYm8bc4lyF1dW5mrcXGgnUfZ43Vujxkf3oZ3sJhLu-Eq_EXGQ",
+      imageable: self
+    )
   end
 end
