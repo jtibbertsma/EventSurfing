@@ -19,9 +19,7 @@ PadCrashing.Views.EventIndexItem = Backbone.CompositeView.extend({
   },
 
   render: function () {
-    this.$el.html(this.template({
-      event: this.model
-    }));
+    this.$el.html(this.template());
     this.attachSubviews();
     return this;
   }
