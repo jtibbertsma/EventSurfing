@@ -4,6 +4,8 @@
     <div class="spots-remaining">
       <%= event.escape("spots_remaining") %> spots left!
     </div>
+  <% } else if (event.get("spots_remaining") === 0) { %>
+    <div class="spots-remaining-gray">No spots left...</div>
   <% } %>
 </div>
 

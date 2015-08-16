@@ -120,10 +120,15 @@ body {
     color: #990033;
     padding-bottom: 5px;
   }
-  > .spots-remaining {
-    background: #990033;
+  > .spots-remaining, .spots-remaining-gray {
     color: white;
     padding: 2px;
+  }
+  > .spots-remaining {
+    background: #990033;
+  }
+  > .spots-remaining-gray {
+    background: gray; 
   }
 }
 
