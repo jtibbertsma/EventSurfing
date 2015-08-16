@@ -56,7 +56,7 @@ PadCrashing.Views.EventJoinButton = Backbone.View.extend({
 
         // Add an event join model to the database
         this.model.join = join;
-        this.switchToUnjoin();
+        this.changeButton({ to: "unjoin" });
         this._working = false;
       }.bind(this)
     })
@@ -84,20 +84,23 @@ PadCrashing.Views.EventJoinButton = Backbone.View.extend({
           this.attenders.remove(currentUser);
         }
 
-        // delete the join model attribute from the main model and rerender
+        // delete the join model attribute from the main model and change the
+        // button to join
         delete this.model.join;
-        this.render();
+        this.changeButton({ to: "join" });
         this._working = false;
       }.bind(this)
     });
   },
 
-  switchToUnjoin: function () {
-    var $button = this.$(".join");
-    if ($button.length === 0) {
-      return;
+  changeButton: function (options) {
+    if (options.to === "unjoin") {
+      var $button = this.$(".join");
+      $button.removeClass("join").addClass("unjoin").text("Unjoin");
+    } else if (options.to === "join") {
+      var $button = this.$(".unjoin");
+      $button.removeClass("unjoin").addClass("join").text("Join");
     }
-    $button.removeClass("join").addClass("unjoin").text("Unjoin");
   },
 
   render: function () {
