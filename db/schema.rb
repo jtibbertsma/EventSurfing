@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150813193045) do
+ActiveRecord::Schema.define(version: 20150816085129) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -39,6 +39,18 @@ ActiveRecord::Schema.define(version: 20150813193045) do
   end
 
   add_index "events", ["organizer_id"], name: "index_events_on_organizer_id", using: :btree
+
+  create_table "images", force: :cascade do |t|
+    t.integer  "imageable_id",   null: false
+    t.string   "imageable_type", null: false
+    t.string   "image_url",      null: false
+    t.string   "thumb_url",      null: false
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
+  end
+
+  add_index "images", ["image_url"], name: "index_images_on_image_url", unique: true, using: :btree
+  add_index "images", ["imageable_type", "imageable_id"], name: "index_images_on_imageable_type_and_imageable_id", using: :btree
 
   create_table "users", force: :cascade do |t|
     t.string   "name",             null: false

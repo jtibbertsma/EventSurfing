@@ -18,6 +18,8 @@ class Event < ActiveRecord::Base
   has_many :event_joins, dependent: :destroy
   has_many :attenders, through: :event_joins, source: :attender
 
+  has_one :background, class_name: :Image, as: :imageable
+
   validates(
     :organizer,
     :title,
