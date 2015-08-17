@@ -27,10 +27,12 @@ PadCrashing.Views.EventForm = Backbone.View.extend({
 
   imageInput: function (event) {
     event.preventDefault();
+    this.$("#UploadSuccess").text("");
     cloudinary.openUploadWidget(CLOUDINARY_OPTIONS, function (error, result) {
       if (!error) {
         var data = result[0];
         this.model.set({ image_url: data.url, thumb_url: data.thumbnail_url });
+        this.$("#UploadSuccess").text("Upload Successful!");
       } 
     }.bind(this));
   },
