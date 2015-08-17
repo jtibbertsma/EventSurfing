@@ -32,6 +32,7 @@ PadCrashing.Views.EventForm = Backbone.View.extend({
       if (!error) {
         var data = result[0];
         this.model.set({ image_url: data.url, thumb_url: data.thumbnail_url });
+        this.model.background.set({ image_url: data.url, thumb_url: data.thumbnail_url })
         this.$("#UploadSuccess").text("Upload Successful!");
       } 
     }.bind(this));
