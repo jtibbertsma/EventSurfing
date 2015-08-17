@@ -30,6 +30,8 @@ PadCrashing.Views.Modal = Backbone.View.extend({
 
     // kill listener
     this.$(".modal").off("hidden.bs.modal", this.remove.bind(this));
+
+    // kill self
     this.subview.remove();
     Backbone.View.prototype.remove.call(this);
   }
