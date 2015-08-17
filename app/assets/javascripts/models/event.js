@@ -53,8 +53,10 @@ PadCrashing.Models.Event = Backbone.Model.extend({
   },
 
   _parseBackground: function (payload) {
-    this.background = new PadCrashing.Models.Image(payload.background);
-    delete payload.background;
+    if (payload.background) {
+      this.background = new PadCrashing.Models.Image(payload.background);
+      delete payload.background;
+    }
   },
 
   parse: function (payload) {
