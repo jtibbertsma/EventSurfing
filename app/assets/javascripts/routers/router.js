@@ -3,28 +3,13 @@ PadCrashing.Routers.Router = Backbone.Router.extend({
     '': 'eventsIndex',
     'users/:id': 'userShow',
     'events': 'eventsIndex',
-    'events/:id': 'eventShow'//,
-    // 'test': 'test'
+    'events/new': 'eventsNew',
+    'events/:id': 'eventShow',
   },
 
   initialize: function (options) {
     this.$rootEl = options.$rootEl;
   },
-
-  // test: function () {
-  //   var user = new PadCrashing.Models.User();
-  //   user.fetch({
-  //     url: "api/users/1",
-  //     error: function () {
-  //       alert("It goes to error if don't pass an id.")
-  //     },
-
-  //     success: function () {
-  //       alert("Why are you here??");
-  //       console.log(user);
-  //     }
-  //   })
-  // },
 
   userShow: function (id) {
     var user = new PadCrashing.Models.User({ id: id });
@@ -46,6 +31,10 @@ PadCrashing.Routers.Router = Backbone.Router.extend({
     });
     var view = new PadCrashing.Views.EventsIndex({ collection: events });
     this._swapView(view);
+  },
+
+  eventsNew: function () {
+    PadCrashing.Utils.renderEventForm();
   },
 
   eventShow: function (id) {
