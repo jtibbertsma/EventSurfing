@@ -30,13 +30,18 @@ PadCrashing.Views.EventForm = Backbone.View.extend({
 
   createEvent: function (event) {
     event.preventDefault();
-    // var formData = $(event.currentTarget).serializeJson().event;
-    // this.model.save(formData, {
-    //   success: function () {
-    //     this.remove();
-    //   }.bind(this)
-    // })
-    debugger;
-    this.hideModal();
+    var formData = this.$('form').serializeJSON().event;
+    this.model.save(formData, {
+      error: function () {
+        console.log("Error in creating event");
+      },
+
+      success: function () {
+        $('.modal').one("hidden.bs.modal", function () {
+          Backbone.history.navigate("#events/" + this.model.id, { trigger: true });
+        }.bind(this));
+        this.hideModal();
+      }.bind(this)
+    });
   }
 });
