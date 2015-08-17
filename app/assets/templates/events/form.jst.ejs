@@ -4,8 +4,97 @@
   </button>
   <h4 class="modal-title" id="myModalLabel">Edit Event</h4>
 </div>
-<div class="modal-body"></div>
+<div class="modal-body">
+  <form>
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-xs-12">
+          <div class="form-group">
+            <label for="EventTitle">Title</label>
+            <input
+              type="text"
+              class="form-control"
+              placeholder="eg: Dragonboating on the Danube"
+              id="EventTitle"
+            >
+          </div>
+
+          <div class="form-group">
+            <label for="NumberOfSpots">Maximum Number of Attenders</label>
+            <input
+              type="number"
+              class="form-control"
+              placeholder="If this field is left blank, then any number of people can go"
+              id="NumberOfSpots"
+            >
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-xs-3">
+          <div class="form-group">
+            <label for="StartTime">Start Time</label>
+            <input
+              type="time"
+              class="form-control"
+              id="StartTime"
+            >
+          </div>
+        </div>
+
+        <div class="col-xs-9">
+          <div class="form-group">
+            <label for="StartDate">Start Date</label>
+            <input
+              type="date"
+              class="form-control"
+              id="EndTime"
+            >
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-xs-3">
+          <div class="form-group">
+            <label for="EndTime">End Time</label>
+            <input
+              type="time"
+              class="form-control"
+              id="EndTime"
+            >
+          </div>
+        </div>
+
+        <div class="col-xs-9">
+          <div class="form-group">
+            <label for="EndDate">End Date</label>
+            <input
+              type="date"
+              class="form-control"
+              id="EndDate"
+            >
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-xs-12">
+          <div class="form-group">
+            <label for="Description">Describe Your Event</label>
+            <textarea
+              class="form-control"
+              id="Description"
+              rows="9"
+            ></textarea>
+          </div>
+        </div>
+      </div>
+    </div>
+  </form>
+</div>
 <div class="modal-footer">
   <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-  <button type="button" class="btn btn-primary" id="modal-button">Submit</button>
+  <button type="button" class="btn btn-primary" id="modalButton">Submit</button>
 </div>
