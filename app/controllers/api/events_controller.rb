@@ -22,6 +22,22 @@ class Api::EventsController < Api::ApiController
     end
   end
 
+  def update
+    @event = Event.find(params[:id])
+    if @event.save(event_params)
+      Image.create(image_params)   # Just ignore if unsuccessful
+      render json: @event
+    else
+      render json: @event.errors.full_messages, status: :unprocessable_entity
+    end
+  end
+
+  def destroy
+    @event = Event.find(params[:id])
+    @event.destroy
+    render json: @event
+  end
+
   private
 
   def event_params
