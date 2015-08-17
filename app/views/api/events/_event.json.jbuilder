@@ -11,6 +11,8 @@ unless join.nil?
 end
 
 unless bare_bones
+  json.spots event.spots
+
   json.background do
     json.extract! event.background, :image_url, :thumb_url
   end

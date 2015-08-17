@@ -34,7 +34,7 @@ class Event < ActiveRecord::Base
   private
 
   def join_organizer
-    EventJoin.create(attender: organizer, event: self)
+    EventJoin.find_or_create_by(attender: organizer, event: self)
   end
 
   def default_background

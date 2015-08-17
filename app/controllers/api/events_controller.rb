@@ -24,7 +24,7 @@ class Api::EventsController < Api::ApiController
 
   def update
     @event = Event.find(params[:id])
-    if @event.save(event_params)
+    if @event.update(event_params)
       Image.create(image_params)   # Just ignore if unsuccessful
       render json: @event
     else

@@ -11,7 +11,7 @@ PadCrashing.Views.EventForm = Backbone.View.extend({
   },
 
   render: function () {
-    this.$el.html(this.template());
+    this.$el.html(this.template({ event: this.model }));
     if (this.model.isNew()) {
       this.$("#myModalLabel").text("Create New Event");
     }

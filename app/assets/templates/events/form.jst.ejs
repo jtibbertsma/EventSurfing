@@ -18,6 +18,7 @@
               placeholder="eg: Dragonboating on the Danube"
               id="EventTitle"
               name="event[title]"
+              value="<%= event.get('title') %>"
             >
           </div>
         </div>
@@ -32,6 +33,7 @@
               class="form-control"
               id="StartTime"
               name="start_time[time]"
+              value="<%= event.get("raw_start_time") && moment(event.get("raw_start_time")).format('HH:mm') %>"
             >
           </div>
         </div>
@@ -44,6 +46,7 @@
               class="form-control"
               id="EndTime"
               name="start_time[date]"
+              value="<%= event.get("raw_start_time") && moment(event.get("raw_start_time")).format('YYYY[-]MM[-]DD') %>"
             >
           </div>
         </div>
@@ -58,6 +61,7 @@
               class="form-control"
               id="EndTime"
               name="end_time[time]"
+              value="<%= event.get("raw_end_time") && moment(event.get("raw_end_time")).format('HH:mm') %>"
             >
           </div>
         </div>
@@ -70,6 +74,7 @@
               class="form-control"
               id="EndDate"
               name="end_time[date]"
+              value="<%= event.get("raw_end_time") && moment(event.get("raw_end_time")).format('YYYY[-]MM[-]DD') %>"
             >
           </div>
         </div>
@@ -85,6 +90,7 @@
               placeholder="If this field is left blank, then any number of people can go"
               id="NumberOfSpots"
               name="event[spots]"
+              value="<%= event.get("spots") %>"
             >
           </div>
 
@@ -95,7 +101,7 @@
               id="Description"
               rows="9"
               name="event[description]"
-            ></textarea>
+            ><%= event.get("description") %></textarea>
           </div>
         </div>
       </div>
