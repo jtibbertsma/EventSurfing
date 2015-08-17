@@ -19,7 +19,7 @@ unless bare_bones
   json.organizer_name event.organizer.name
 
   json.attenders do
-    json.array! event.attenders do |attender|
+    json.array! event.attenders.includes(:avatar) do |attender|
       json.partial! 'api/users/user', user: attender, bare_bones: true
     end
   end
