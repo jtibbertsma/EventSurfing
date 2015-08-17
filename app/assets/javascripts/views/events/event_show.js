@@ -2,6 +2,11 @@ PadCrashing.Views.EventShow = Backbone.CompositeView.extend({
   template: JST["events/show"],
   className: "container-fluid",
 
+  events: {
+    "click .destroy": "destroyEvent",
+    "click .edit": "editEvent"
+  },
+
   initialize: function () {
     this.addSubview(
       ".main-attender-list",
@@ -17,6 +22,19 @@ PadCrashing.Views.EventShow = Backbone.CompositeView.extend({
       })
     );
     this.listenTo(this.model, "sync", this.render);
+  },
+
+  destroyEvent: function () {
+    // TODO: have a box pop up and ask 'are you sure?''
+    this.model.destroy({
+      success: function () {
+        Backbone.history.navigate("#events", { trigger: true });
+      }
+    });
+  },
+
+  editEvent: function () {
+    PadCrashing.Utils.renderEventForm({ model: this.model });
   },
 
   render: function () {
