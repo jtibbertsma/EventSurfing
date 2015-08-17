@@ -29,7 +29,8 @@ body {
   margin: 60px 0 100px 0;
 }
 
-.btn.btn-default.join, .btn.btn-default.unjoin {
+.btn.btn-default.join, .btn.btn-default.unjoin,
+.btn.btn-default.destroy, .btn.btn-default.edit {
   width: 100px;
   position: relative;
   border-radius: 20px;
@@ -49,6 +50,10 @@ body {
   &:focus {
     outline: none;
   }
+}
+
+.btn.btn-default.edit {
+  float: right;
 }
 
 .events-index-header {
@@ -106,6 +111,16 @@ body {
 .show-join {
   margin: 0 0 15px 15px;
   float: left;
+}
+
+.show-destroy {
+  margin-bottom: 15px;
+  float: left;
+}
+
+.show-edit {
+  margin: 0 15px 15px 0;
+  float: right;
 }
 
 .attender-header {

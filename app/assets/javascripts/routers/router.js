@@ -1,10 +1,10 @@
 PadCrashing.Routers.Router = Backbone.Router.extend({
   routes: {
-    '': 'eventsIndex',
-    'users/:id': 'userShow',
-    'events': 'eventsIndex',
-    'events/new': 'eventsNew',
-    'events/:id': 'eventShow',
+    ''           : 'eventsIndex',
+    'users/:id'  : 'userShow',
+    'events'     : 'eventsIndex',
+    'events/new' : 'eventNew',
+    'events/:id' : 'eventShow'
   },
 
   initialize: function (options) {
@@ -33,7 +33,10 @@ PadCrashing.Routers.Router = Backbone.Router.extend({
     this._swapView(view);
   },
 
-  eventsNew: function () {
+  eventNew: function () {
+    if (!this.currentView) {
+      this.eventsIndex();
+    }
     PadCrashing.Utils.renderEventForm();
   },
 

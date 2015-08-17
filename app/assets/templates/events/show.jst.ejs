@@ -20,6 +20,15 @@
       <p class="event-when"><%= event.when() %></p>
       <p>Location link will go here</p>
       <div class="show-join"></div>
+
+      <% if (event.join && event.get("organizer_id") === event.join.get("attender_id")) { %>
+        <div class="show-destroy">
+          <button class="btn btn-default destroy">Delete</button>
+        </div>
+        <div class="show-edit">
+          <button class="btn btn-default edit">Edit</button>
+        </div>
+      <% } %>
     </div>
 
     <div class="primary-box">
