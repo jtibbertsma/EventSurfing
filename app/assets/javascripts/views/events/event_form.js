@@ -18,6 +18,13 @@ PadCrashing.Views.EventForm = Backbone.View.extend({
     return this;
   },
 
+  parseTimes: function (data) {
+    data.event.start_time = data.start_time.date + ' ' + data.start_time.time;
+    data.event.end_time = data.end_time.date + ' ' + data.end_time.time;
+
+    return data.event;
+  },
+
   imageInput: function (event) {
     event.preventDefault();
     cloudinary.openUploadWidget(CLOUDINARY_OPTIONS, function (error, result) {
@@ -30,7 +37,8 @@ PadCrashing.Views.EventForm = Backbone.View.extend({
 
   createEvent: function (event) {
     event.preventDefault();
-    var formData = this.$('form').serializeJSON().event;
+    var formData = this.$('form').serializeJSON();
+    formData = this.parseTimes(formData);
     this.model.save(formData, {
       error: function () {
         console.log("Error in creating event");
