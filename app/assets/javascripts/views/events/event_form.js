@@ -18,13 +18,14 @@ PadCrashing.Views.EventForm = Backbone.View.extend({
   },
 
   createEvent: function (event) {
-    // event.preventDefault();
+    event.preventDefault();
     // var formData = $(event.currentTarget).serializeJson().event;
     // this.model.save(formData, {
     //   success: function () {
     //     this.remove();
     //   }.bind(this)
     // })
+    debugger;
     this.hideModal();
   }
 });

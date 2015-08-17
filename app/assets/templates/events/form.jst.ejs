@@ -17,54 +17,59 @@
               class="form-control"
               placeholder="eg: Dragonboating on the Danube"
               id="EventTitle"
+              name="event[title]"
             >
           </div>
         </div>
       </div>
 
       <div class="row">
-        <div class="col-xs-3">
+        <div class="col-xs-4">
           <div class="form-group">
             <label for="StartTime">Start Time</label>
             <input
               type="time"
               class="form-control"
               id="StartTime"
+              name="start_time[time]"
             >
           </div>
         </div>
 
-        <div class="col-xs-9">
+        <div class="col-xs-8">
           <div class="form-group">
             <label for="StartDate">Start Date</label>
             <input
               type="date"
               class="form-control"
               id="EndTime"
+              name="start_time[date]"
             >
           </div>
         </div>
       </div>
 
       <div class="row">
-        <div class="col-xs-3">
+        <div class="col-xs-4">
           <div class="form-group">
             <label for="EndTime">End Time</label>
             <input
               type="time"
               class="form-control"
               id="EndTime"
+              name="end_time[time]"
             >
           </div>
         </div>
 
-        <div class="col-xs-9">
+        <div class="col-xs-8">
           <div class="form-group">
             <label for="EndDate">End Date</label>
             <input
               type="date"
               class="form-control"
               id="EndDate"
+              name="end_time[date]"
             >
           </div>
         </div>
@@ -79,6 +84,7 @@
               class="form-control"
               placeholder="If this field is left blank, then any number of people can go"
               id="NumberOfSpots"
+              name="event[spots]"
             >
           </div>
 
@@ -88,6 +94,7 @@
               class="form-control"
               id="Description"
               rows="9"
+              name="event[description]"
             ></textarea>
           </div>
         </div>
@@ -101,7 +108,9 @@
               type="file"
               class="form-control"
               id="ImageInput"
+              name="image_file"
             >
+            <p class="help-block">Background image on the event page</p>
           </div>
         </div>
       </div>
