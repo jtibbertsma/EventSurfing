@@ -2,13 +2,11 @@ PadCrashing.Views.EventForm = Backbone.View.extend({
   template: JST["events/form"],
 
   events: {
-    "submit form": "createEvent",
-    "click .m-background": "remove",
-    "click .close": "removeButton"
+    "submit form": "createEvent"
   },
 
   initialize: function () {
-    this.$(document).on('keyup', this.handleKey.bind(this));
+    this.listenTo(this.model, "sync", this.render);
   },
 
   render: function () {
@@ -17,12 +15,13 @@ PadCrashing.Views.EventForm = Backbone.View.extend({
   },
 
   createEvent: function (event) {
-    event.preventDefault();
-    var formData = $(event.currentTarget).serializeJson().event;
-    this.model.save(formData, {
-      success: function () {
-        this.remove();
-      }.bind(this)
-    })
+    // event.preventDefault();
+    // var formData = $(event.currentTarget).serializeJson().event;
+    // this.model.save(formData, {
+    //   success: function () {
+    //     this.remove();
+    //   }.bind(this)
+    // })
+    console.log("Form submitted from modal");
   }
 });

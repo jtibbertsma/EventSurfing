@@ -29,23 +29,6 @@ body {
   margin: 60px 0 100px 0;
 }
 
-.m-background {
-  background: rgba(112, 106, 106, 0.5);
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  z-index: 2;
-}
-
-.m-content {
-  position: absolute;
-  z-index: 3;
-  top: 25%;
-  left: 25%;
-}
-
 .btn.btn-default.join, .btn.btn-default.unjoin {
   width: 100px;
   position: relative;

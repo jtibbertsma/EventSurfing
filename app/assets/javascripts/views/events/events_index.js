@@ -45,6 +45,6 @@ PadCrashing.Views.EventsIndex = Backbone.CompositeView.extend({
   },
 
   renderForm: function () {
-    console.log("'Create new event' button was pressed");
+    PadCrashing.Utils.renderEventForm();
   }
 });
