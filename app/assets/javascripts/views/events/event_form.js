@@ -2,7 +2,7 @@ PadCrashing.Views.EventForm = Backbone.View.extend({
   template: JST["events/form"],
 
   events: {
-    "submit form": "createEvent"
+    "click #modalButton": "createEvent"
   },
 
   initialize: function () {
@@ -11,6 +11,9 @@ PadCrashing.Views.EventForm = Backbone.View.extend({
 
   render: function () {
     this.$el.html(this.template());
+    if (this.model.isNew()) {
+      this.$("#myModalLabel").text("Create New Event");
+    }
     return this;
   },
 
@@ -22,6 +25,6 @@ PadCrashing.Views.EventForm = Backbone.View.extend({
     //     this.remove();
     //   }.bind(this)
     // })
-    console.log("Form submitted from modal");
+    this.hideModal();
   }
 });
