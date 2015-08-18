@@ -1,6 +1,7 @@
 PadCrashing.Routers.Router = Backbone.Router.extend({
   routes: {
-    ''           : 'eventsIndex',
+    ''           : 'redirect',
+    'dashboard'  : 'dashboard',
     'users/:id'  : 'userShow',
     'events'     : 'eventsIndex',
     'events/new' : 'eventNew',
@@ -19,6 +20,24 @@ PadCrashing.Routers.Router = Backbone.Router.extend({
       }
     });
     var view = new PadCrashing.Views.UserShow({ model: user });
+    this._swapView(view);
+  },
+
+  redirect: function () {
+    Backboard.history.navigate("#dashboard", { trigger: true });
+  },
+
+  dashboard: function () {
+    var user = new PadCrashing.Models.User();
+    user.fetch({
+      url: "/api/dashboard",
+
+      error: function () {
+        alert("Shit went wrong in dashboard")
+      }
+    });
+
+    var view = new PadCrashing.Views.Dashboard({ model: user });
     this._swapView(view);
   },
 
