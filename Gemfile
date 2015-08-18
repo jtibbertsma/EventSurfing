@@ -15,6 +15,7 @@ gem 'momentjs-rails'
 gem 'faker'
 gem 'cloudinary'
 gem 'figaro'
+gem 'rest-client'
 
 group :production do
   gem "rails_12factor"
@@ -29,5 +30,4 @@ group :development, :test do
   gem 'binding_of_caller'
   gem 'annotate'
   gem 'bullet'
-  gem 'rest-client'
 end
