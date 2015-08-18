@@ -24,7 +24,7 @@ PadCrashing.Routers.Router = Backbone.Router.extend({
   },
 
   redirect: function () {
-    Backboard.history.navigate("#dashboard", { trigger: true });
+    Backbone.history.navigate("#dashboard", { trigger: true });
   },
 
   dashboard: function () {
