@@ -1,0 +1,12 @@
+<div class="row">
+  <div class="col-xs-3">
+    <div
+      class="avatar-holder"
+      style="background-image:url(<%= user.avatar && user.avatar.get("image_url") %>)"
+    >
+      <div class="avatar-text">
+        <h3><%= user.escape("name") %></h3>
+      </div>
+    </div>
+  </div>
+</div>
