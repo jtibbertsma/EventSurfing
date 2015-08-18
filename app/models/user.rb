@@ -10,9 +10,16 @@
 #  created_at       :datetime         not null
 #  updated_at       :datetime         not null
 #  description_head :text
+#  hosting_status   :string           not null
 #
 
 class User < ActiveRecord::Base
+  HOSTING_STATUSES = [
+    "Accepting Guests",
+    "Maybe Accepting Guests",
+    "Not Accepting Guests"
+  ]
+
   has_many :organized_events, class_name: :Event, foreign_key: :organizer_id
   has_many :event_joins, foreign_key: :attender_id, dependent: :destroy
   has_many :joined_events, through: :event_joins, source: :event
@@ -21,9 +28,18 @@ class User < ActiveRecord::Base
 
   attr_reader :password
 
-  validates :name, :email, :session_token, :password_digest, presence: true
+  validates(
+    :name,
+    :email,
+    :session_token,
+    :password_digest,
+    :hosting_status,
+    presence: true
+  )
+  
   validates :email, :session_token, uniqueness: true
   validates :password, length: { minimum: 6, allow_nil: true }
+  validates :hosting_status, inclusion: { in: HOSTING_STATUSES }
 
   after_initialize :ensure_session_token
   after_save :default_avatar
