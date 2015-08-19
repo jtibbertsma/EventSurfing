@@ -16,14 +16,16 @@ PadCrashing.Views.EventForm = Backbone.View.extend({
       this.$("#myModalLabel").text("Create New Event");
     }
 
-    setTimeout(function () {
-      $("#EventLocation").geocomplete();
+    this.$("#EventLocation").geocomplete();
+    return this;
+  },
 
-      // We need to set a high z-index for our autolocation div to appear above
+  onRender: function () {
+    $("#myModal").one("shown.bs.modal", function () {
+      // We need to set a high z-index for the autolocation div to appear above
       // the bootstrap modal.
       $(".pac-container").css("z-index", "2000");
-    }, 0);
-    return this;
+    });
   },
 
   parseTimes: function (data) {

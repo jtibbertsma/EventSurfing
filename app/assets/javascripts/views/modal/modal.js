@@ -15,6 +15,7 @@ PadCrashing.Views.Modal = Backbone.View.extend({
     this.$el.html(this.template());
     this.attachSubview();
     $("body").append(this.$el);
+    this.subview.onRender && this.subview.onRender();
 
     this.$("#myModal").modal();
   },
@@ -28,7 +29,7 @@ PadCrashing.Views.Modal = Backbone.View.extend({
     // kill all cloudinary iframes
     $("iframe").remove();
 
-    // kill location autocomplete containers
+    // kill geocomplete container
     $(".pac-container").remove();
 
     // kill listener
