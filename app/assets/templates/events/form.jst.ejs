@@ -29,9 +29,15 @@
               class="form-control"
               placeholder="An address or the name of a place"
               id="EventLocation"
-              name="location"
               value="<%= event.get("location") %>"
             >
+          </div>
+
+          <div class="details">
+            <input type="hidden" name="lat" value="">
+            <input type="hidden" name="lng" value="">
+            <input type="hidden" name="formatted_address" value="">
+            <input type="hidden" name="place_id" value="">
           </div>
         </div>
       </div>

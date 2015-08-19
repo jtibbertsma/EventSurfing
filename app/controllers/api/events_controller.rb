@@ -13,6 +13,7 @@ class Api::EventsController < Api::ApiController
   end
 
   def create
+    
     @event = Event.new(event_params)
     if @event.save
       Image.create(image_params)   # Just ignore if unsuccessful

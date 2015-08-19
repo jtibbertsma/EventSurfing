@@ -16,11 +16,14 @@ PadCrashing.Views.EventForm = Backbone.View.extend({
       this.$("#myModalLabel").text("Create New Event");
     }
 
-    this.$("#EventLocation").geocomplete();
     return this;
   },
 
   onRender: function () {
+    this.$("#EventLocation").geocomplete({
+      details: ".details"
+    });
+
     $("#myModal").one("shown.bs.modal", function () {
       // We need to set a high z-index for the autolocation div to appear above
       // the bootstrap modal.
@@ -33,6 +36,16 @@ PadCrashing.Views.EventForm = Backbone.View.extend({
     data.event.end_time = data.end_time.date + ' ' + data.end_time.time;
 
     return data.event;
+  },
+
+  parseLocation: function (data) {
+    data.event.location = {};
+    data.event.location.formatted_address = data.formatted_address;
+    data.event.location.place_id = data.place_id;
+    data.event.location.lng = data.lng;
+    data.event.location.lat = data.lat;
+
+    return data;
   },
 
   imageInput: function (event) {
@@ -54,7 +67,10 @@ PadCrashing.Views.EventForm = Backbone.View.extend({
   createEvent: function (event) {
     event.preventDefault();
     var formData = this.$('form').serializeJSON();
+
+    formData = this.parseLocation(formData);
     formData = this.parseTimes(formData);
+
     this.model.save(formData, {
       error: function () {
         console.log("Error in creating event");
