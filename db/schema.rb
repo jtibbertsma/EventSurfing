@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150819165508) do
+ActiveRecord::Schema.define(version: 20150819195610) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -53,12 +53,12 @@ ActiveRecord::Schema.define(version: 20150819165508) do
   add_index "images", ["imageable_type", "imageable_id"], name: "index_images_on_imageable_type_and_imageable_id", using: :btree
 
   create_table "places", force: :cascade do |t|
-    t.string   "place_id",          null: false
-    t.string   "formatted_address", null: false
-    t.float    "lat",               null: false
-    t.float    "lng",               null: false
-    t.datetime "created_at",        null: false
-    t.datetime "updated_at",        null: false
+    t.string   "place_id",                                   null: false
+    t.string   "formatted_address",                          null: false
+    t.decimal  "lat",               precision: 10, scale: 6, null: false
+    t.decimal  "lng",               precision: 10, scale: 6, null: false
+    t.datetime "created_at",                                 null: false
+    t.datetime "updated_at",                                 null: false
   end
 
   add_index "places", ["place_id"], name: "index_places_on_place_id", unique: true, using: :btree
