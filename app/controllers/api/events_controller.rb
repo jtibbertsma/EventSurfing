@@ -27,8 +27,9 @@ class Api::EventsController < Api::ApiController
 
   def update
     location = Place.find_by(place_id: location_params[:place_id])
+    location = Place.create(location_params) unless location
     @event = Event.find(params[:id])
-    @event.location = location if location
+    @event.location = location
     if @event.update(event_params)
       Image.create(image_params)   # Just ignore if unsuccessful
       render json: @event

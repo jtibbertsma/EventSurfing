@@ -7,15 +7,20 @@ PadCrashing.Views.EventShowMap = Backbone.View.extend({
   },
 
   onRender: function () {
+    var center = new google.maps.LatLng(
+      this.model.get("lat"),
+      this.model.get("lng")
+    );
     var mapOptions = {
-      center: new google.maps.LatLng( 37.5816061, -122.052577 ),
+      center: center,
       zoom: 15
     };
 
-    var map = this.map = new google.maps.Map(this.$(".map-holder")[0], mapOptions);
-
-    $("#myModal").on("shown.bs.modal", function () {
-      google.maps.event.trigger(map, 'resize');
-    });
+    $("#myModal").one("shown.bs.modal", function () {
+      var map = this.map = new google.maps.Map(
+        this.$(".map-holder")[0],
+        mapOptions
+      );
+    }.bind(this));
   }
 });
