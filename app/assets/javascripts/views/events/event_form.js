@@ -45,6 +45,11 @@ PadCrashing.Views.EventForm = Backbone.View.extend({
     data.event.location.lng = data.lng;
     data.event.location.lat = data.lat;
 
+    data.event.formatted_address = data.formatted_address;
+    data.event.place_id = data.place_id;
+    data.event.lng = data.lng;
+    data.event.lat = data.lat;
+
     return data;
   },
 
