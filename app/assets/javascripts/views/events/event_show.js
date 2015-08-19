@@ -3,6 +3,7 @@ PadCrashing.Views.EventShow = Backbone.CompositeView.extend({
   className: "container-fluid",
 
   events: {
+    "click .open-map": "openMap",
     "click .destroy": "destroyEvent",
     "click .edit": "editEvent"
   },
@@ -22,6 +23,14 @@ PadCrashing.Views.EventShow = Backbone.CompositeView.extend({
       })
     );
     this.listenTo(this.model, "sync", this.render);
+  },
+
+  openMap: function () {
+    var mapView = new PadCrashing.Views.EventShowMap({ model: this.model });
+    new PadCrashing.Views.Modal({
+      subview: mapView,
+      large: true
+    });
   },
 
   destroyEvent: function () {

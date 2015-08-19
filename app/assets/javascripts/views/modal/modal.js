@@ -3,6 +3,8 @@ PadCrashing.Views.Modal = Backbone.View.extend({
 
   initialize: function (options) {
     this.subview = options.subview;
+    this.large = options.large;
+
     this.subview.hideModal = function () {
       this.$("#myModal").modal("hide");
     }.bind(this)
@@ -13,6 +15,11 @@ PadCrashing.Views.Modal = Backbone.View.extend({
 
   render: function () {
     this.$el.html(this.template());
+
+    if (this.large) {
+      this.$(".modal-dialog").addClass("modal-lg");
+    }
+
     this.attachSubview();
     $("body").append(this.$el);
     this.subview.onRender && this.subview.onRender();
