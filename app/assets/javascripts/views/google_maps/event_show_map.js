@@ -17,10 +17,15 @@ PadCrashing.Views.EventShowMap = Backbone.View.extend({
     };
 
     $("#myModal").one("shown.bs.modal", function () {
-      var map = this.map = new google.maps.Map(
+      this.map = new google.maps.Map(
         this.$(".map-holder")[0],
         mapOptions
       );
+
+      new google.maps.Marker({
+        position: center,
+        map: this.map
+      });
     }.bind(this));
   }
 });

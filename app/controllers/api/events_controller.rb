@@ -29,7 +29,7 @@ class Api::EventsController < Api::ApiController
     location = Place.find_by(place_id: location_params[:place_id])
     location = Place.create(location_params) unless location
     @event = Event.find(params[:id])
-    @event.location = location
+    @event.location = location unless location.place_id.empty?
     if @event.update(event_params)
       Image.create(image_params)   # Just ignore if unsuccessful
       render json: @event
