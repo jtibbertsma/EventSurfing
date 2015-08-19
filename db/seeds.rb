@@ -43,7 +43,7 @@ other_users = 30.times.inject([]) do |memo, _|
 end
 
 # Create 15 events owned by other users
-events = 15.times.inject([]) do |memo, _|
+events = 15.times.inject(Event.all.to_a) do |memo, _|
   event = Event.create(
     organizer: other_users.sample,
     title: Faker::Company.bs,
