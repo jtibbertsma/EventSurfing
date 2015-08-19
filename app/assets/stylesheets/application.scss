@@ -58,6 +58,11 @@ body {
   &:focus {
     outline: none;
   }
+
+}
+
+.btn.btn-default.cool-button.request, .btn.btn-default.cool-button.profile {
+  width: 150px;
 }
 
 .btn.btn-default.edit {
@@ -155,7 +160,6 @@ body {
 
 .attender-list-item {
   padding-bottom: 5px;
-
 }
 
 .event-show-head {
@@ -164,7 +168,7 @@ body {
   > .event-show-head-background {
     background: gray;
     margin-bottom: 10px;
-    height: 300px;
+    height: 400px;
     background-size: cover;
     > .show-head-text {
       position: relative;
@@ -222,6 +226,16 @@ body {
     border-bottom: thin #036 solid;
     padding-bottom: 10px;
   }
+}
+
+.hosting-status {
+  margin: 7px 0 7px 0;
+  font-size: 18px;
+  float: left;
+}
+
+.hosting-button {
+  float: right;
 }
 
 .avatar-holder {

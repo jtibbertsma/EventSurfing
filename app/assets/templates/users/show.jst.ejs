@@ -9,11 +9,18 @@
       <h1><%= user.escape("name") %></h1>
     </div>
 
-    <div class="hosting-status primary-box">
-      <h4>Hosting Status will go here</h4>
+    <div class="primary-box clearfix">
+      <h3 class="hosting-status"><%= user.get("hosting_status") %></h3>
+      <div class="hosting-button">
+        <% if (user.get("current")) { %>
+          <button class="btn btn-default cool-button profile">Edit Profile</button>
+        <% } else if (user.get("hosting_status") !== "Not Accepting Guests") { %>
+          <button class="btn btn-default cool-button request">Request to Crash</button>
+        <% } %>
+      </div>
     </div>
 
-    <div class="primary-box user-show-about">
+    <div class="primary-box">
       <h4>About Me</h4>
       <% if (user.get("description_head")) { %>
         <%= PadCrashing.Utils.writeParagraphs(user.escape("description_head")) %>

@@ -13,6 +13,10 @@ PadCrashing.Views.UserShow = Backbone.View.extend({
       "background-image",
       "url(" + this.model.avatar.escape("image_url") + ")"
     );
+
+    if (this.model.get("hosting_status") === "Accepting Guests") {
+      this.$(".hosting-status").css("color", "green");
+    }
     return this;
   }
 });
