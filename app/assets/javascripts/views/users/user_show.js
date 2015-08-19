@@ -2,7 +2,7 @@ PadCrashing.Views.UserShow = Backbone.View.extend({
   template: JST['users/show'],
   className: "container-fluid",
 
-  events {
+  events: {
     "click .profile": "editProfile",
     "click .request": "sendRequest"
   },
