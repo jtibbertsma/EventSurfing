@@ -2,8 +2,21 @@ PadCrashing.Views.UserShow = Backbone.View.extend({
   template: JST['users/show'],
   className: "container-fluid",
 
+  events {
+    "click .profile": "editProfile",
+    "click .request": "sendRequest"
+  },
+
   initialize: function () {
     this.listenTo(this.model, "sync", this.render);
+  },
+
+  editProfile: function () {
+    console.log("In edit profile");
+  },
+
+  sendRequest: function () {
+    console.log("In send request");
   },
 
   render: function () {
