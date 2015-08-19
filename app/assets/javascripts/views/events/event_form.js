@@ -15,6 +15,14 @@ PadCrashing.Views.EventForm = Backbone.View.extend({
     if (this.model.isNew()) {
       this.$("#myModalLabel").text("Create New Event");
     }
+
+    setTimeout(function () {
+      $("#EventLocation").geocomplete();
+
+      // We need to set a high z-index for our autolocation div to appear above
+      // the bootstrap modal.
+      $(".pac-container").css("z-index", "2000");
+    }, 0);
     return this;
   },
 
@@ -32,7 +40,10 @@ PadCrashing.Views.EventForm = Backbone.View.extend({
       if (!error) {
         var data = result[0];
         this.model.set({ image_url: data.url, thumb_url: data.thumbnail_url });
-        this.model.background.set({ image_url: data.url, thumb_url: data.thumbnail_url })
+        this.model.background && this.model.background.set({
+          image_url: data.url,
+          thumb_url: data.thumbnail_url
+        });
         this.$("#UploadSuccess").text("Upload Successful!");
       } 
     }.bind(this));

@@ -28,6 +28,9 @@ PadCrashing.Views.Modal = Backbone.View.extend({
     // kill all cloudinary iframes
     $("iframe").remove();
 
+    // kill location autocomplete containers
+    $(".pac-container").remove();
+
     // kill listener
     this.$(".modal").off("hidden.bs.modal", this.remove.bind(this));
 

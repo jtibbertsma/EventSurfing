@@ -21,6 +21,18 @@
               value="<%= event.get('title') %>"
             >
           </div>
+
+          <div class="form-group">
+            <label for="EventLocation">Location</label>
+            <input
+              type="text"
+              class="form-control"
+              placeholder="An address or the name of a place"
+              id="EventLocation"
+              name="location"
+              value="<%= event.get("location") %>"
+            >
+          </div>
         </div>
       </div>
 
@@ -42,7 +54,7 @@
           <div class="form-group">
             <label for="StartDate">Start Date</label>
             <input
-              type="datetime"
+              type="date"
               class="form-control"
               id="EndTime"
               name="start_time[date]"
