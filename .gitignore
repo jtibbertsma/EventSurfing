@@ -16,5 +16,3 @@
 
 # Ignore application configuration
 /config/application.yml
-
-app/assets/javascripts/util/geocomplete.js
