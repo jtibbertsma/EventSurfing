@@ -13,6 +13,27 @@ def make_description
   .join("\n")
 end
 
+def create_event_image(event)
+  res = RestClient.get("http://www.splashbase.co/api/v1/images/random")
+  res = JSON.parse(res)
+  image_params = {
+    image_url: res["url"],
+    thumb_url: "http://at-cdn-s01.audiotool.com/2012/07/13/" +
+               "documents/hahaha_silly_remix_competition/1/" +
+               "cover256x256-2284b20b805049ad823c7314cf0e466e.jpg",
+    imageable: event
+  }
+
+  Image.create(image_params)
+end
+
+default_location = Place.create(
+  place_id: "ChIJqZrowoSAhYARcFDpnQD0gNA",
+  formatted_address: "1061 Market St, San Francisco, CA 94103, USA",
+  lat: 37.7809191,
+  lng: -122.41139850000002
+)
+
 test_user = User.create(
   name: "Joseph Tibbertsma",
   email: "email@email.com",
@@ -22,14 +43,17 @@ test_user = User.create(
 
 # Create 3 events owned by test user
 3.times do
-  Event.create(
+  event = Event.create(
     organizer: test_user,
     title: Faker::Company.bs,
     description: make_description,
     start_time: Faker::Date.forward(10),
     end_time: Faker::Date.between(10.days.from_now, 15.days.from_now),
-    spots: rand(5...15)
+    spots: rand(5...15),
+    location: default_location
   )
+
+  create_event_image(event)
 end
 
 # Create 30 more users
@@ -51,20 +75,11 @@ events = 15.times.inject(Event.all.to_a) do |memo, _|
     description: make_description,
     start_time: Faker::Date.forward(9),
     end_time: Faker::Date.between(10.days.from_now, 15.days.from_now),
-    spots: rand(5...15)
+    spots: rand(5...15),
+    location: default_location
   )
 
-  res = RestClient.get("http://www.splashbase.co/api/v1/images/random")
-  res = JSON.parse(res)
-  image_params = {
-    image_url: res["url"],
-    thumb_url: "http://at-cdn-s01.audiotool.com/2012/07/13/" +
-               "documents/hahaha_silly_remix_competition/1/" +
-               "cover256x256-2284b20b805049ad823c7314cf0e466e.jpg",
-    imageable: event
-  }
-
-  Image.create(image_params)
+  create_event_image(event)
 
   memo << event
 end

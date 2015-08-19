@@ -15,12 +15,13 @@
 
 class Event < ActiveRecord::Base
   belongs_to :organizer, class_name: :User
+  belongs_to :location, class_name: :Place
   has_many :event_joins, dependent: :destroy
   has_many :attenders, through: :event_joins, source: :attender
 
   has_one :background, class_name: :Image, as: :imageable, dependent: :destroy
 
-  validates :organizer, :title, :description, :start_time, presence: true
+  validates :organizer, :title, :description, :start_time, :location, presence: true
 
   after_save :default_background
   after_save :join_organizer
