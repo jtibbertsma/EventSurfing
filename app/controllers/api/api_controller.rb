@@ -6,4 +6,8 @@ class Api::ApiController < ApplicationController
       render json: {}, status: :forbidden
     end
   end
+
+  def location_params
+    params.require(:location).permit(:place_id, :formatted_address, :lat, :lng)
+  end
 end

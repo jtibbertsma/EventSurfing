@@ -18,7 +18,7 @@
         </div>
       </div>
       <p class="event-when"><%= event.when() %></p>
-      <p>Location link will go here</p>
+      <p><a class="open-map" href="javascript:void(0)"><%= event.get("formatted_address") %></a></p>
       <div class="show-join"></div>
 
       <% if (event.join && event.get("organizer_id") === event.join.get("attender_id")) { %>

@@ -10,6 +10,8 @@ unless join.nil?
   end
 end
 
+json.extract! event.location, :formatted_address, :lat, :lng
+
 unless bare_bones
   json.spots event.spots
 
