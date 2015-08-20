@@ -12,11 +12,13 @@ PadCrashing.Views.UserShow = Backbone.View.extend({
   },
 
   editProfile: function () {
-    console.log("In edit profile");
+    var view = new PadCrashing.Views.UserForm({ model: this.model });
+
+    new PadCrashing.Views.Modal({ subview: view });
   },
 
   sendRequest: function () {
-    console.log("In send request");
+    console.log("Send request");
   },
 
   render: function () {

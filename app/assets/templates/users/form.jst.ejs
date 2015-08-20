@@ -1,0 +1,85 @@
+<div class="modal-header">
+  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+    <span aria-hidden="true">&times;</span>
+  </button>
+  <h4 class="modal-title">Edit Profile</h4>
+</div>
+
+<div class="modal-body">
+  <form>
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-xs-6">
+          <div class="form-group">
+            <label for="UserName">Name</label>
+            <input
+              type="text"
+              name="user[name]"
+              id="UserName"
+              class="form-control"
+              value="<%= user.escape("name") %>"
+            >
+          </div>
+        </div>
+
+        <div class="col-xs-6">
+          <div class="form-group">
+            <label for="UserEmail">Email</label>
+            <input
+              type="text"
+              name="user[email]"
+              id="UserEmail"
+              class="form-control"
+              value="<%= user.escape("email") %>"
+            >
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-xs-12">
+          <div class="form-group">
+            <label for="UserStatus">Hosting Status</label>
+            <select
+              class="form-control"
+              id="UserStatus"
+              name="user[hosting_status]"
+              value="<%= user.escape("hosting_status") %>"
+            >
+              <option <%= user.get("hosting_status") === "Accepting Guests" ? "selected" : "" %>>Accepting Guests</option>
+              <option <%= user.get("hosting_status") === "Maybe Accepting Guests" ? "selected" : "" %>>Maybe Accepting Guests</option>
+              <option <%= user.get("hosting_status") === "Not Accepting Guests" ? "selected" : "" %>>Not Accepting Guests</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="UserAbout">About Me</label>
+            <textarea
+              class="form-control"
+              id="UserAbout"
+              rows="9"
+              name="user[description_head]"
+              placeholder="Write something about yourself!"
+            ><%= user.get("description_head") %></textarea>
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-xs-6">
+          <div class="form-group">
+            <label for="ImageInput">Image Input</label>
+            <br>
+            <button id="ImageInput" class="btn btn-primary">Change Your Avatar</button>
+            <p class="help-block" id="UploadSuccess"></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </form>
+</div>
+
+<div class="modal-footer">
+  <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+  <button type="button" class="btn btn-primary" id="modalButton">Submit</button>
+</div>
