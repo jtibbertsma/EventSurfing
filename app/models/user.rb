@@ -27,7 +27,6 @@ class User < ActiveRecord::Base
     :email,
     :session_token,
     :password_digest,
-    :hosting_status,
     presence: true
   )
   
