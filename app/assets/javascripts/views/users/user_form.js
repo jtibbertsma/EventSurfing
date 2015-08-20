@@ -30,6 +30,7 @@ PadCrashing.Views.UserForm = Backbone.View.extend({
   editUser: function (event) {
     event.preventDefault();
     var formData = this.$('form').serializeJSON();
+    var avatar = this.model.avatar;
 
     this.model.save(formData, {
       error: function () {
@@ -37,6 +38,7 @@ PadCrashing.Views.UserForm = Backbone.View.extend({
       },
 
       success: function () {
+        this.model.avatar = avatar;
         this.hideModal();
       }.bind(this)
     });
