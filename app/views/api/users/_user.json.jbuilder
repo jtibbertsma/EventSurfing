@@ -5,5 +5,6 @@ end
 
 unless bare_bones
   json.current user == current_user
+  json.email user.email
   json.description_head user.description_head
 end
