@@ -1,4 +1,4 @@
-json.extract! user, :id, :name, :hosting_status
+json.extract! user, :id, :name
 json.avatar do
   json.extract! user.avatar, :image_url, :thumb_url
 end
