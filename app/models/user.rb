@@ -14,22 +14,11 @@
 #
 
 class User < ActiveRecord::Base
-  HOSTING_STATUSES = [
-    "Accepting Guests",
-    "Maybe Accepting Guests",
-    "Not Accepting Guests"
-  ]
-
   has_many :organized_events, class_name: :Event, foreign_key: :organizer_id
   has_many :event_joins, foreign_key: :attender_id, dependent: :destroy
   has_many :joined_events, through: :event_joins, source: :event
 
   has_one :avatar, class_name: :Image, as: :imageable, dependent: :destroy
-
-  has_many :sent_crash_requests, class_name: :CrashRequest, foreign_key: :requester_id, dependent: :destroy
-  has_many :received_crash_requests, class_name: :CrashRequest, foreign_key: :hoster_id, dependent: :destroy
-  has_many :hosters, through: :sent_crash_requests, source: :hoster
-  has_many :requesters, through: :received_crash_requests, source: :requester
 
   attr_reader :password
 

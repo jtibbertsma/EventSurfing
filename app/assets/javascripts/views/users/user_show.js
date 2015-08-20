@@ -3,8 +3,7 @@ PadCrashing.Views.UserShow = Backbone.View.extend({
   className: "container-fluid",
 
   events: {
-    "click .profile": "editProfile",
-    "click .request": "sendRequest"
+    "click .profile": "editProfile"
   },
 
   initialize: function () {
@@ -17,20 +16,6 @@ PadCrashing.Views.UserShow = Backbone.View.extend({
     new PadCrashing.Views.Modal({ subview: view });
   },
 
-  sendRequest: function () {
-    if (this._sending) {
-      return;
-    }
-    this._sending = true;
-    var request = new PadCrashing.Models.CrashRequest();
-    request.save({ hoster_id: this.model.id }, {
-      success: function () {
-        this.model.fetch();
-        this._sending = false;
-      }.bind(this)
-    })
-  },
-
   render: function () {
     this.$el.html(this.template({ user: this.model }));
 
@@ -39,9 +24,6 @@ PadCrashing.Views.UserShow = Backbone.View.extend({
       "url(" + this.model.avatar.escape("image_url") + ")"
     );
 
-    if (this.model.get("hosting_status") === "Accepting Guests") {
-      this.$(".hosting-status").css("color", "green");
-    }
     return this;
   }
 });

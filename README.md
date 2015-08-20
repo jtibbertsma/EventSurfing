@@ -14,9 +14,6 @@ PadCrashing is a clone of CouchSurfing built on Rails and Backbone. Users can:
 - [x] Create events
 - [x] Join events
 - [ ] Search for events
-- [ ] Change status between hosting/not hosting
-- [ ] Make travel plans
-- [ ] Make/accept requests
 - [ ] Users can get/give references.
 
 ## Design Docs
@@ -52,12 +49,10 @@ I'll put this phase off until the end.
 
 [Details][phase-three]
 
-### Phase 4: Hosting and Traveling (~1-2 days)
-Users will be able to change their status between maybe hosting, hosting, and not
-hosting. Users that want to host can search for travellers and those that want to
-travel can search for users with hosting or maybe hosting status. I'll create
-routes to get collections of users that are within a certain distance of given location
-and have a certain status.
+### Phase 4: ???
+
+I've totally given up on phase 4. I really bit off more than I could chew with this
+project.
 
 [Details][phase-four]
 
