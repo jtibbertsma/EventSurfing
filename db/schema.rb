@@ -11,10 +11,22 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150819195610) do
+ActiveRecord::Schema.define(version: 20150820165321) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "crash_requests", force: :cascade do |t|
+    t.integer  "hoster_id",                    null: false
+    t.integer  "requester_id",                 null: false
+    t.boolean  "accepted",     default: false, null: false
+    t.datetime "created_at",                   null: false
+    t.datetime "updated_at",                   null: false
+  end
+
+  add_index "crash_requests", ["hoster_id", "requester_id"], name: "index_crash_requests_on_hoster_id_and_requester_id", unique: true, using: :btree
+  add_index "crash_requests", ["hoster_id"], name: "index_crash_requests_on_hoster_id", using: :btree
+  add_index "crash_requests", ["requester_id"], name: "index_crash_requests_on_requester_id", using: :btree
 
   create_table "event_joins", force: :cascade do |t|
     t.integer  "attender_id"

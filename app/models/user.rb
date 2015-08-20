@@ -26,6 +26,11 @@ class User < ActiveRecord::Base
 
   has_one :avatar, class_name: :Image, as: :imageable, dependent: :destroy
 
+  has_many :sent_crash_requests, class_name: :CrashRequest, foreign_key: :requester_id, dependent: :destroy
+  has_many :received_crash_requests, class_name: :CrashRequest, foreign_key: :hoster_id, dependent: :destroy
+  has_many :hosters, through: :sent_crash_requests, source: :hoster
+  has_many :requesters, through: :received_crash_requests, source: :requester
+
   attr_reader :password
 
   validates(
