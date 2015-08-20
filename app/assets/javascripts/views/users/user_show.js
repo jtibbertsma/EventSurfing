@@ -18,7 +18,17 @@ PadCrashing.Views.UserShow = Backbone.View.extend({
   },
 
   sendRequest: function () {
-    console.log("Send request");
+    if (this._sending) {
+      return;
+    }
+    this._sending = true;
+    var request = new PadCrashing.Models.CrashRequest();
+    request.save({ hoster_id: this.model.id }, {
+      success: function () {
+        this.model.fetch();
+        this._sending = false;
+      }.bind(this)
+    })
   },
 
   render: function () {
