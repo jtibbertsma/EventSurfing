@@ -1,4 +1,4 @@
-PadCrashing.Views.Modal = Backbone.View.extend({
+EventSurfing.Views.Modal = Backbone.View.extend({
   template: JST["modal/modal"],
 
   initialize: function (options) {

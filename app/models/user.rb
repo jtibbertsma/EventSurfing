@@ -33,7 +33,6 @@ class User < ActiveRecord::Base
   
   validates :email, :session_token, uniqueness: true
   validates :password, length: { minimum: 6, allow_nil: true }
-  validates :hosting_status, inclusion: { in: HOSTING_STATUSES }
 
   after_initialize :ensure_session_token
   after_save :default_avatar

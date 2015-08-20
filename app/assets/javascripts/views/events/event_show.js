@@ -1,4 +1,4 @@
-PadCrashing.Views.EventShow = Backbone.CompositeView.extend({
+EventSurfing.Views.EventShow = Backbone.CompositeView.extend({
   template: JST["events/show"],
   className: "container-fluid",
 
@@ -11,13 +11,13 @@ PadCrashing.Views.EventShow = Backbone.CompositeView.extend({
   initialize: function () {
     this.addSubview(
       ".main-attender-list",
-      new PadCrashing.Views.EventAttenderHolder({
+      new EventSurfing.Views.EventAttenderHolder({
         model: this.model
       })
     );
     this.addSubview(
       ".show-join",
-      new PadCrashing.Views.EventJoinButton({
+      new EventSurfing.Views.EventJoinButton({
         model: this.model,
         attenders: this.model.attenders()
       })
@@ -26,8 +26,8 @@ PadCrashing.Views.EventShow = Backbone.CompositeView.extend({
   },
 
   openMap: function () {
-    var mapView = new PadCrashing.Views.EventShowMap({ model: this.model });
-    new PadCrashing.Views.Modal({
+    var mapView = new EventSurfing.Views.EventShowMap({ model: this.model });
+    new EventSurfing.Views.Modal({
       subview: mapView,
       large: true
     });
@@ -43,7 +43,7 @@ PadCrashing.Views.EventShow = Backbone.CompositeView.extend({
   },
 
   editEvent: function () {
-    PadCrashing.Utils.renderEventForm({ model: this.model });
+    EventSurfing.Utils.renderEventForm({ model: this.model });
   },
 
   render: function () {

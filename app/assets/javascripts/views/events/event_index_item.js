@@ -1,4 +1,4 @@
-PadCrashing.Views.EventIndexItem = Backbone.CompositeView.extend({
+EventSurfing.Views.EventIndexItem = Backbone.CompositeView.extend({
   template: JST["events/index_item"],
   className: "index-item clearfix",
 
@@ -7,14 +7,14 @@ PadCrashing.Views.EventIndexItem = Backbone.CompositeView.extend({
     this.listenTo(this.model, "sync", this.render);
     this.addSubview(
       ".index-item-join",
-      new PadCrashing.Views.EventJoinButton({
+      new EventSurfing.Views.EventJoinButton({
         model: this.model,
         joined: this.joined
       })
     );
     this.addSubview(
       ".index-item-text",
-      new PadCrashing.Views.EventIndexItemText({ model: this.model })
+      new EventSurfing.Views.EventIndexItemText({ model: this.model })
     );
   },
 

@@ -1,9 +1,9 @@
-PadCrashing.Models.Event = Backbone.Model.extend({
+EventSurfing.Models.Event = Backbone.Model.extend({
   urlRoot: "api/events",
 
   attenders: function () {
     if (!this._attenders) {
-      this._attenders = new PadCrashing.Collections.Users();
+      this._attenders = new EventSurfing.Collections.Users();
     }
 
     return this._attenders;
@@ -49,14 +49,14 @@ PadCrashing.Models.Event = Backbone.Model.extend({
 
   _parseJoin: function (payload) {
     if (payload.join) {
-      this.join = new PadCrashing.Models.EventJoin(payload.join);
+      this.join = new EventSurfing.Models.EventJoin(payload.join);
       delete payload.join
     }
   },
 
   _parseBackground: function (payload) {
     if (payload.background) {
-      this.background = new PadCrashing.Models.Image(payload.background);
+      this.background = new EventSurfing.Models.Image(payload.background);
       delete payload.background;
     }
   },

@@ -1,6 +1,6 @@
-PadCrashing.Collections.Users = Backbone.Collection.extend({
+EventSurfing.Collections.Users = Backbone.Collection.extend({
   url: "api/users",
-  model: PadCrashing.Models.User,
+  model: EventSurfing.Models.User,
 
   parse: function (payload) {
     return payload.map(function (obj) {

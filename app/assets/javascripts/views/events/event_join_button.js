@@ -1,4 +1,4 @@
-PadCrashing.Views.EventJoinButton = Backbone.View.extend({
+EventSurfing.Views.EventJoinButton = Backbone.View.extend({
   template: JST["events/join_button"],
 
   events: {
@@ -17,7 +17,7 @@ PadCrashing.Views.EventJoinButton = Backbone.View.extend({
       return;
     }
     this._working = true;
-    var join = new PadCrashing.Models.EventJoin();
+    var join = new EventSurfing.Models.EventJoin();
 
     join.save({ event_id: this.model.id }, {
       error: function () {
@@ -42,7 +42,7 @@ PadCrashing.Views.EventJoinButton = Backbone.View.extend({
         // the event join model. This causes the attenders list on the show
         // page to rerender
         if (this.attenders) {
-          var currentUser = new PadCrashing.Models.User({
+          var currentUser = new EventSurfing.Models.User({
             id: join.get("attender_id")
           });
           currentUser.fetch({
@@ -79,7 +79,7 @@ PadCrashing.Views.EventJoinButton = Backbone.View.extend({
 
         // Remove the current user from the attenders collection if it's there
         if (this.attenders) {
-          var currentUser = new PadCrashing.Models.User({
+          var currentUser = new EventSurfing.Models.User({
             id: this.model.join.get("attender_id")
           });
           this.attenders.remove(currentUser);

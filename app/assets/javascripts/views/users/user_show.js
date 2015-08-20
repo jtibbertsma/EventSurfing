@@ -1,4 +1,4 @@
-PadCrashing.Views.UserShow = Backbone.View.extend({
+EventSurfing.Views.UserShow = Backbone.View.extend({
   template: JST['users/show'],
   className: "container-fluid",
 
@@ -11,9 +11,9 @@ PadCrashing.Views.UserShow = Backbone.View.extend({
   },
 
   editProfile: function () {
-    var view = new PadCrashing.Views.UserForm({ model: this.model });
+    var view = new EventSurfing.Views.UserForm({ model: this.model });
 
-    new PadCrashing.Views.Modal({ subview: view });
+    new EventSurfing.Views.Modal({ subview: view });
   },
 
   render: function () {

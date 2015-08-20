@@ -12,7 +12,7 @@
     <div class="primary-box">
       <h4>About Me</h4>
       <% if (user.get("description_head")) { %>
-        <%= PadCrashing.Utils.writeParagraphs(user.escape("description_head")) %>
+        <%= EventSurfing.Utils.writeParagraphs(user.escape("description_head")) %>
       <% } else { %>
         <p><%= user.escape("name") %> hasn't written anything yet! </p>
       <% } %>

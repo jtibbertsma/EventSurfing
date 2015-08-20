@@ -1,7 +1,7 @@
 // The difference between this and the main index is that this doesn't generate
 // join/unjoin button along with the index item text
 
-PadCrashing.Views.EventSubIndex = Backbone.CompositeView.extend({
+EventSurfing.Views.EventSubIndex = Backbone.CompositeView.extend({
   template: JST["events/sub_index"],
 
   initialize: function () {
@@ -14,7 +14,7 @@ PadCrashing.Views.EventSubIndex = Backbone.CompositeView.extend({
   addIndexItemText: function (model) {
     this.addSubview(
       ".sub-index-item-holder",
-      new PadCrashing.Views.EventIndexItemText({ model: model })
+      new EventSurfing.Views.EventIndexItemText({ model: model })
     );
   },
 

@@ -1,3 +1,3 @@
-PadCrashing.Models.Image = Backbone.Model.extend({
+EventSurfing.Models.Image = Backbone.Model.extend({
   urlRoot: "api/images"
 });

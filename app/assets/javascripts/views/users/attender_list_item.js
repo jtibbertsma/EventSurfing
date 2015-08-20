@@ -1,4 +1,4 @@
-PadCrashing.Views.AttenderListItem = Backbone.View.extend({
+EventSurfing.Views.AttenderListItem = Backbone.View.extend({
   template: JST["users/attender_list_item"],
   className: "attender-list-item clearfix",
 

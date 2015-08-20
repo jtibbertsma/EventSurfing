@@ -1,4 +1,4 @@
-PadCrashing.Utils.writeParagraphs = function (text) {
+EventSurfing.Utils.writeParagraphs = function (text) {
   var $el = $("<div>");
   var paragraphs = text.split("\n");
 

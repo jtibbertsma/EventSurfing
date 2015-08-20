@@ -1,4 +1,4 @@
-PadCrashing.Views.EventShowMap = Backbone.View.extend({
+EventSurfing.Views.EventShowMap = Backbone.View.extend({
   template: JST["google_maps/event_show_map"],
 
   render: function () {

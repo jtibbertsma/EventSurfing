@@ -1,4 +1,4 @@
-PadCrashing.Views.EventsIndex = Backbone.CompositeView.extend({
+EventSurfing.Views.EventsIndex = Backbone.CompositeView.extend({
   template: JST["events/index"],
   className: "container-fluid",
 
@@ -13,14 +13,14 @@ PadCrashing.Views.EventsIndex = Backbone.CompositeView.extend({
 
     this.addSubview(
       ".events-organizing",
-      new PadCrashing.Views.EventSubIndex({
+      new EventSurfing.Views.EventSubIndex({
         collection: this.collection.organizing()
       })
     );
 
     this.addSubview(
       ".events-joined",
-      new PadCrashing.Views.EventSubIndex({
+      new EventSurfing.Views.EventSubIndex({
         collection: this.collection.joined()
       })
     );
@@ -29,7 +29,7 @@ PadCrashing.Views.EventsIndex = Backbone.CompositeView.extend({
   addEventIndexItem: function (eventModel) {
     this.addSubview(
       ".index-item-holder",
-      new PadCrashing.Views.EventIndexItem({
+      new EventSurfing.Views.EventIndexItem({
         model: eventModel,
         joined: this.collection.joined()
       })
@@ -45,6 +45,6 @@ PadCrashing.Views.EventsIndex = Backbone.CompositeView.extend({
   },
 
   renderForm: function () {
-    PadCrashing.Utils.renderEventForm();
+    EventSurfing.Utils.renderEventForm();
   }
 });

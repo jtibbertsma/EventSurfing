@@ -1,4 +1,4 @@
-PadCrashing.Views.EventIndexItemText = Backbone.View.extend({
+EventSurfing.Views.EventIndexItemText = Backbone.View.extend({
   template: JST["events/index_item_text"],
 
   events: {

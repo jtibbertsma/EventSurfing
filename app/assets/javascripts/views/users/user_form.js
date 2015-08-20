@@ -1,4 +1,4 @@
-PadCrashing.Views.UserForm = Backbone.View.extend({
+EventSurfing.Views.UserForm = Backbone.View.extend({
   template: JST["users/form"],
 
   events: {

@@ -1,4 +1,4 @@
-PadCrashing.Views.Dashboard = Backbone.View.extend({
+EventSurfing.Views.Dashboard = Backbone.View.extend({
   template: JST['dashboard/dashboard'],
   className: "container-fluid",
 

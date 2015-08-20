@@ -1,10 +1,10 @@
-PadCrashing.Views.EventAttenderHolder = Backbone.CompositeView.extend({
+EventSurfing.Views.EventAttenderHolder = Backbone.CompositeView.extend({
   template: JST["events/attender_holder"],
 
   initialize: function () {
     this.addSubview(
       ".attenders",
-      new PadCrashing.Views.EventAttenders({
+      new EventSurfing.Views.EventAttenders({
         collection: this.model.attenders()
       })
     );

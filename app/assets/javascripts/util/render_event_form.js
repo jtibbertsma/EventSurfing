@@ -1,11 +1,11 @@
-PadCrashing.Utils.renderEventForm = function (options) {
+EventSurfing.Utils.renderEventForm = function (options) {
   var model = options && options.model;
 
   if (!model) {
-    model = new PadCrashing.Models.Event();
+    model = new EventSurfing.Models.Event();
   }
 
-  new PadCrashing.Views.Modal({
-    subview: new PadCrashing.Views.EventForm({ model: model })
+  new EventSurfing.Views.Modal({
+    subview: new EventSurfing.Views.EventForm({ model: model })
   });
 };

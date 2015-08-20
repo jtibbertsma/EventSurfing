@@ -1,4 +1,4 @@
-PadCrashing.Routers.Router = Backbone.Router.extend({
+EventSurfing.Routers.Router = Backbone.Router.extend({
   routes: {
     ''           : 'redirect',
     'dashboard'  : 'dashboard',
@@ -13,13 +13,13 @@ PadCrashing.Routers.Router = Backbone.Router.extend({
   },
 
   userShow: function (id) {
-    var user = new PadCrashing.Models.User({ id: id });
+    var user = new EventSurfing.Models.User({ id: id });
     user.fetch({
       error: function () {
         alert("Shit went wrong in user show");
       }
     });
-    var view = new PadCrashing.Views.UserShow({ model: user });
+    var view = new EventSurfing.Views.UserShow({ model: user });
     this._swapView(view);
   },
 
@@ -28,7 +28,7 @@ PadCrashing.Routers.Router = Backbone.Router.extend({
   },
 
   dashboard: function () {
-    var user = new PadCrashing.Models.User();
+    var user = new EventSurfing.Models.User();
     user.fetch({
       url: "/api/dashboard",
 
@@ -37,18 +37,18 @@ PadCrashing.Routers.Router = Backbone.Router.extend({
       }
     });
 
-    var view = new PadCrashing.Views.Dashboard({ model: user });
+    var view = new EventSurfing.Views.Dashboard({ model: user });
     this._swapView(view);
   },
 
   eventsIndex: function () {
-    var events = new PadCrashing.Collections.Events();
+    var events = new EventSurfing.Collections.Events();
     events.fetch({
       error: function () {
         alert("Shit went wrong in events index");
       }
     });
-    var view = new PadCrashing.Views.EventsIndex({ collection: events });
+    var view = new EventSurfing.Views.EventsIndex({ collection: events });
     this._swapView(view);
   },
 
@@ -56,17 +56,17 @@ PadCrashing.Routers.Router = Backbone.Router.extend({
     if (!this.currentView) {
       this.eventsIndex();
     }
-    PadCrashing.Utils.renderEventForm();
+    EventSurfing.Utils.renderEventForm();
   },
 
   eventShow: function (id) {
-    var eventModel = new PadCrashing.Models.Event({ id: id });
+    var eventModel = new EventSurfing.Models.Event({ id: id });
     eventModel.fetch({
       error: function () {
         alert("Shit went wrong in event show");
       }
     });
-    var view = new PadCrashing.Views.EventShow({ model: eventModel });
+    var view = new EventSurfing.Views.EventShow({ model: eventModel });
     this._swapView(view);
   },
 

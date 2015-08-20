@@ -1,4 +1,4 @@
-PadCrashing.Views.Navbar = Backbone.View.extend({
+EventSurfing.Views.Navbar = Backbone.View.extend({
   template: JST["navbar/navbar"],
   className: "navbar-main",
 
