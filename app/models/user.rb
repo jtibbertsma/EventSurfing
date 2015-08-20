@@ -10,7 +10,7 @@
 #  created_at       :datetime         not null
 #  updated_at       :datetime         not null
 #  description_head :text
-#  hosting_status   :string           not null
+#  hosting_status   :string           default("Maybe Accepting Guests"), not null
 #
 
 class User < ActiveRecord::Base

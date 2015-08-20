@@ -7,7 +7,7 @@ Rails.application.routes.draw do
   namespace :api, defaults: { format: :json } do
     get 'dashboard', to: 'dashboard#dashboard'
 
-    resources :users, only: [:show]
+    resources :users, only: [:show, :update]
     resources :events, except: [:edit, :new]
     resources :event_joins, only: [:create, :destroy]
   end
