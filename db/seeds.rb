@@ -62,8 +62,7 @@ other_users = 30.times.inject([]) do |memo, _|
     name: Faker::Name.name,
     email: Faker::Internet.email,
     password: Faker::Internet.password,
-    description_head: make_description,
-    hosting_status: User::HOSTING_STATUSES.sample
+    description_head: make_description
   )
 end
 
