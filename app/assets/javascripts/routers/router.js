@@ -37,7 +37,7 @@ EventSurfing.Routers.Router = Backbone.Router.extend({
       }
     });
 
-    var view = new EventSurfing.Views.Dashboard({ model: user });
+    var view = new EventSurfing.Views.UserShow({ model: user });
     this._swapView(view);
   },
 
