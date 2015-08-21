@@ -61,7 +61,7 @@ other_users = 30.times.inject([]) do |memo, _|
   memo << User.create(
     name: Faker::Name.name,
     email: Faker::Internet.email,
-    password: Faker::Internet.password,
+    password: "password123",
     description_head: make_description
   )
 end
