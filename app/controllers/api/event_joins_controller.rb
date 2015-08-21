@@ -1,4 +1,6 @@
 class Api::EventJoinsController < Api::ApiController
+  before_action :ensure_logged_in
+
   def create
     @event_join = EventJoin.new(
       event_id: params[:event_join][:event_id],
