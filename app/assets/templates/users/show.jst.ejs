@@ -10,11 +10,13 @@
       <h4><%= user.escape("location_title") || user.escape("name") + " hasn't added a location yet!" %>
     </div>
 
-    <% if (this.model.get("current")) { %>
-      <div class="primary-box">
-        <button class="btn btn-default cool-button profile">Edit Your Profile</button>
-      </div>
+    <div class="primary-box">
+    <% if (user.get("current")) { %>
+      <button class="btn btn-default cool-button profile">Edit Your Profile</button>
+    <% } else { %>
+      <button class="btn btn-default cool-button message">Send a Message</button>
     <% } %>
+    </div>
 
     <div class="primary-box">
       <h4>About Me</h4>

@@ -3,7 +3,8 @@ EventSurfing.Views.UserShow = Backbone.View.extend({
   className: "container-fluid",
 
   events: {
-    "click .profile": "editProfile"
+    "click .profile": "editProfile",
+    "click .message": "openMessageForm"
   },
 
   initialize: function () {
@@ -12,6 +13,12 @@ EventSurfing.Views.UserShow = Backbone.View.extend({
 
   editProfile: function () {
     var view = new EventSurfing.Views.UserForm({ model: this.model });
+
+    new EventSurfing.Views.Modal({ subview: view });
+  },
+
+  openMessageForm: function () {
+    var view = new EventSurfing.Views.MessageForm({ model: this.model });
 
     new EventSurfing.Views.Modal({ subview: view });
   },
