@@ -9,7 +9,10 @@ class Api::UsersController < Api::ApiController
   end
 
   def update
+    location = Place.find_by(place_id: location_params[:place_id])
+    location = Place.create(location_params) unless location
     @user = User.find(params[:id])
+    @user.location = location if location
     if @user.update(user_params)
       Image.create(image_params)
       render json: @user

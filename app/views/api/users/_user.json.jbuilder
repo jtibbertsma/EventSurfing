@@ -4,7 +4,7 @@ json.avatar do
 end
 
 if user.location
-  json.location user.location.formatted_address
+  json.location_title user.location.formatted_address
 end
 
 unless bare_bones
