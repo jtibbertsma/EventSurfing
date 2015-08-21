@@ -1,6 +1,13 @@
 <div class="row">
   <div class="col-xs-3">
     <div class="avatar-holder"></div>
+
+    <% if (user.get("current")) { %>
+      <div class="primary-box" id="stuff">
+        <h4>Stuff</h4>
+        <a class="open-messages" href="javascript:void(0)">Messages</a>
+      </div>
+    <% } %>
   </div>
 
   

@@ -8,6 +8,7 @@
 #  content      :text             not null
 #  created_at   :datetime         not null
 #  updated_at   :datetime         not null
+#  subject      :string
 #
 
 class Message < ActiveRecord::Base
