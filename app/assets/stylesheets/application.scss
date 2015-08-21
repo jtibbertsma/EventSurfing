@@ -24,8 +24,6 @@
 
 body {
   margin: 60px 0 100px 0;
-  background: url(http://api.thumbr.it/whitenoise-361x370.png?background=edeef5ff&noise=233ff7&density=72&opacity=14);
-  background-attachment: fixed;
 }
 
 #nav-links {
@@ -118,6 +116,9 @@ body {
 
 .show-header {
   padding-left: 10px;
+  > h4 {
+    font-weight: 300;
+  }
 }
 
 .show-join {

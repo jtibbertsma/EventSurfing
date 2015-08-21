@@ -3,6 +3,10 @@ json.avatar do
   json.extract! user.avatar, :image_url, :thumb_url
 end
 
+if user.location
+  json.location user.location.formatted_address
+end
+
 unless bare_bones
   json.current user == current_user
   json.email user.email
