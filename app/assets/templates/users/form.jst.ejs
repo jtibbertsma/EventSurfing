@@ -2,7 +2,7 @@
   <button type="button" class="close" data-dismiss="modal" aria-label="Close">
     <span aria-hidden="true">&times;</span>
   </button>
-  <h4 class="modal-title">Edit Profile</h4>
+  <h4 class="modal-title">Edit Your Profile</h4>
 </div>
 
 <div class="modal-body">
@@ -38,20 +38,6 @@
 
       <div class="row">
         <div class="col-xs-12">
-          <div class="form-group">
-            <label for="UserStatus">Hosting Status</label>
-            <select
-              class="form-control"
-              id="UserStatus"
-              name="user[hosting_status]"
-              value="<%= user.escape("hosting_status") %>"
-            >
-              <option <%= user.get("hosting_status") === "Accepting Guests" ? "selected" : "" %>>Accepting Guests</option>
-              <option <%= user.get("hosting_status") === "Maybe Accepting Guests" ? "selected" : "" %>>Maybe Accepting Guests</option>
-              <option <%= user.get("hosting_status") === "Not Accepting Guests" ? "selected" : "" %>>Not Accepting Guests</option>
-            </select>
-          </div>
-
           <div class="form-group">
             <label for="UserAbout">About Me</label>
             <textarea

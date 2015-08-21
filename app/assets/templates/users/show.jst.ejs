@@ -7,6 +7,11 @@
   <div class="col-xs-7">
     <div class="show-header">
       <h1><%= user.escape("name") %></h1>
+      <% if (this.model.get("current")) { %>
+        <div>
+          <button class="btn btn-default cool-button profile">Edit Your Profile</button>
+        </div>
+      <% } %>
     </div>
 
     <div class="primary-box">

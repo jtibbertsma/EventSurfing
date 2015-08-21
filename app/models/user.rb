@@ -10,7 +10,7 @@
 #  created_at       :datetime         not null
 #  updated_at       :datetime         not null
 #  description_head :text
-#  hosting_status   :string           default("Maybe Accepting Guests"), not null
+#  location_id      :integer
 #
 
 class User < ActiveRecord::Base
@@ -19,6 +19,8 @@ class User < ActiveRecord::Base
   has_many :joined_events, through: :event_joins, source: :event
 
   has_one :avatar, class_name: :Image, as: :imageable, dependent: :destroy
+
+  belongs_to :location, class_name: :Place
 
   attr_reader :password
 
