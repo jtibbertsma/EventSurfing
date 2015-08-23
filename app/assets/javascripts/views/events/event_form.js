@@ -33,10 +33,10 @@ EventSurfing.Views.EventForm = Backbone.View.extend({
 
   parseTimes: function (data) {
     data.event.start_time = moment(
-      data.start_time.date + ' ' + data.start_time.time
+      new Date(data.start_time.date + ' ' + data.start_time.time)
     ).format();
     data.event.end_time = moment(
-      data.end_time.date + ' ' + data.end_time.time
+      new Date(data.end_time.date + ' ' + data.end_time.time)
     ).format();
 
     return data.event;
