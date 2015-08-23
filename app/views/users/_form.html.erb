@@ -1,61 +1,67 @@
 <% title = new_user ? "Sign Up" : "Sign In" %>
 <% action = new_user ? users_url : session_url %>
 
+<div class="splash-text">
+  <h1>Event Surfing</h1>
+  <h3>Join Events Organized by Interesting People, or Organize Your Own</h3>
+</div>
+
 <div class="container">
-  <h1><%= title %></h1>
+  <div class="row">
+    <div class="col-xs-4 col-xs-offset-4 white-box">
+      <h1><%= title %></h1>
 
-  <form action="<%= action %>" method="post">
-    <%= auth_token %>
+      <form action="<%= action %>" method="post">
+        <%= auth_token %>
 
-    <% if new_user %>
-      <div class="form-group">
-        <label>
-          Name
+        <% if new_user %>
+          <div class="form-group">
+            <label for="FormName">Name</label>
+            <input
+              type="text"
+              name="user[name]"
+              value="<%= user.name %>"
+              class="form-control"
+              placeholder="Name"
+              id="FormName"
+            >
+          </div>
+        <% end %>
+
+        <div class="form-group">
+          <label for="FormEmail">Email</label>
           <input
             type="text"
-            name="user[name]"
-            value="<%= user.name %>"
+            name="user[email]"
+            value="<%= user.email %>"
             class="form-control"
-            placeholder="Name"
+            placeholder="Email"
+            id="FormEmail"
           >
-        </label>
-      </div>
-    <% end %>
+        </div>
 
-    <div class="form-group">
-      <label>
-        Email
+        <div class="form-group">
+          <label for="FormPassword">Password</label>
+          <input
+            type="password"
+            name="user[password]"
+            class="form-control"
+            placeholder="Password"
+            id="FormPassword"
+          >
+        </div>
+
         <input
-          type="text"
-          name="user[email]"
-          value="<%= user.email %>"
-          class="form-control"
-          placeholder="Email"
+          type="submit"
+          value="<%= title %>"
+          class="btn btn-default"
         >
-      </label>
-    </div>
-
-    <div class="form-group">
-      <label>
-        Password
-        <input
-          type="password"
-          name="user[password]"
-          class="form-control"
-          placeholder="Password"
-        >
-      </label>
-    </div>
-
-    <input
-      type="submit"
-      value="<%= title %>"
-      class="btn btn-default"
-    >
 
   </form>
 
   <% unless new_user %>
     <p>New user? Sign up <%= link_to "here", new_user_url %>!</p>
   <% end %>
+      </div>
+    </div>
 </div>
