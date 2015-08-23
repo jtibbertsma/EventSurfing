@@ -11,15 +11,10 @@
     </div>
 
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-      <% if signed_in? %>
-        <ul class="nav navbar-nav" id="nav-links">
-          <li><a href="#dashboard">Profile</a></li>
-          <li><a href="#events">Events</a></li>
-        </ul>
-      <% end %>
-
       <ul class="nav navbar-nav navbar-right">
         <% if signed_in? %>
+          <li><a href="#dashboard">Profile</a></li>
+          <li><a href="#events">Events</a></li>
           <li><%= button_to "Sign out", session_url, method: :delete, class: "btn btn-primary navbar-btn" %></li>
         <% else %>
           <li><%= link_to "Log in", new_session_url %></li>

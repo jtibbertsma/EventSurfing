@@ -24,15 +24,10 @@
 
 body {
   margin: 60px 0 100px 0;
-}
-
-#nav-links {
-  margin-left: 130px;
-  > li {
-    > a{
-      font-size: 18px;
-    }
-  }
+  background-image: url(http://www.themesrefinery.net/wp-content/uploads/2014/06/light-background-design-website-9.jpg);
+  background-size: cover;
+  background-position: center center;
+  background-attachment: fixed;
 }
 
 .btn.btn-default.cool-button {
@@ -64,6 +59,11 @@ body {
 
 .btn.btn-default.cool-button.message {
   width: 150px;
+}
+
+.btn.btn-default.cool-button.open-messages {
+  width: 150px;
+  margin-left: 50px;
 }
 
 .btn.btn-default.edit {
@@ -301,6 +301,8 @@ $colHighlight   : #ecdbff;
   background-color: $bgDefault;
   border-color: $bgHighlight;
   .navbar-brand {
+    font-family: 'Crafty Girls', cursive;
+    font-size: 30px;
     color: $colDefault;
     &:hover, &:focus {
       color: $colHighlight; }}
