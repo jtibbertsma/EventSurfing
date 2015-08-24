@@ -20,8 +20,8 @@ class User < ActiveRecord::Base
 
   has_one :avatar, class_name: :Image, as: :imageable, dependent: :destroy
 
-  has_many :received_messages, class_name: :Message, foreign_key: :recipient_id
-  has_many :sent_messages, class_name: :Message, foreign_key: :sender_id
+  has_many :received_messages, class_name: :Message, foreign_key: :recipient_id, dependent: :destroy
+  has_many :sent_messages, class_name: :Message, foreign_key: :sender_id, dependent: :destroy
 
   belongs_to :location, class_name: :Place
 
