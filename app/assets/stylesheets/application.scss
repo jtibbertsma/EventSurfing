@@ -114,7 +114,8 @@ body {
   width: 150px;
 }
 
-.btn.btn-default.cool-button.open-messages {
+.btn.btn-default.cool-button.open-messages,
+ .btn.btn-default.cool-button.close-messages{
   width: 150px;
   margin-left: 20px;
 }
@@ -276,10 +277,10 @@ body {
   padding: 20px;
   border-radius: 5px;
   background: #eee;
-  > p {
+  > p, > div > p {
     margin-bottom: 20px;
   }
-  > h4 {
+  > h4, > div > h4 {
     color: #036;
     border-bottom: thin #036 solid;
     padding-bottom: 10px;

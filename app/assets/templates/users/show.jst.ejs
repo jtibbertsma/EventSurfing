@@ -19,13 +19,6 @@
     <% } %>
     </div>
 
-    <div class="primary-box">
-      <h4>About Me</h4>
-      <% if (user.get("description_head")) { %>
-        <%= EventSurfing.Utils.writeParagraphs(user.escape("description_head")) %>
-      <% } else { %>
-        <p><%= user.escape("name") %> hasn't written anything yet! </p>
-      <% } %>
-    </div>
+    <div class="primary-box user-show-main"></div>
   </div>
 </div>
