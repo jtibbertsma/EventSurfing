@@ -17,7 +17,7 @@ unless bare_bones
   if current
     json.sent_messages do
       json.array! user.sent_messages do |message|
-        json.extract! message, :updated_at, :content, :recipient_id
+        json.extract! message, :id, :updated_at, :content, :recipient_id
         json.subject message.subject && !message.subject.empty? ? message.subject : "(no subject)"
         json.recipient_name message.recipient.name
       end
@@ -25,7 +25,7 @@ unless bare_bones
 
     json.received_messages do
       json.array! user.received_messages do |message|
-        json.extract! message, :updated_at, :content, :sender_id
+        json.extract! message, :id, :updated_at, :content, :sender_id
         json.subject message.subject && !message.subject.empty? ? message.subject : "(no subject)"
         json.sender_name message.sender.name
       end

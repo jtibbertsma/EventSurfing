@@ -8,6 +8,7 @@ EventSurfing.Views.MessageForm = Backbone.View.extend({
   createMessage: function (event) {
     event.preventDefault();
     var formData = $("form").serializeJSON();
+    formData.message.recipient_id = this.model.get("recipient_id");
 
     this.model.save(formData, {
       error: function (data, response) {

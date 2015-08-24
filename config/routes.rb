@@ -10,7 +10,7 @@ Rails.application.routes.draw do
     resources :users, only: [:show, :update]
     resources :events, except: [:edit, :new]
     resources :event_joins, only: [:create, :destroy]
-    resources :messages, only: [:create, :update]
+    resources :messages, only: [:create, :update, :destroy]
   end
 
 end
