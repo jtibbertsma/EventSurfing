@@ -5,6 +5,17 @@ EventSurfing.Views.MessageForm = Backbone.View.extend({
     "click #modalButton": "createMessage"
   },
 
+  initialize: function (options) {
+    this.messageList = options && options.messageList;
+    if (this.model.isNew()) {
+      this.flashTitle = "Message Sent!";
+      this.modalTitle = "Send a Message to " + this.model.escape("recipient_name");
+    } else {
+      this.flashTitle = "Message Successfully Edited!";
+      this.modalTitle = "Edit Message Sent to " + this.model.escape("recipient_name");
+    }
+  },
+
   createMessage: function (event) {
     event.preventDefault();
     var formData = $("form").serializeJSON();
@@ -22,12 +33,17 @@ EventSurfing.Views.MessageForm = Backbone.View.extend({
 
       success: function () {
         new EventSurfing.Views.Flash({
-          flashTitle: "Message sent!"
+          flashTitle: this.flashTitle
         });
 
+        this.messageList && this.messageList.add(this.model);
         this.hideModal();
       }.bind(this)
     })
+  },
+
+  onRender: function () {
+    this.$("#modalTitle").text(this.modalTitle);
   },
 
   render: function () {

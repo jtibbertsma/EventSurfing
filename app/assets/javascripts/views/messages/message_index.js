@@ -9,7 +9,7 @@ EventSurfing.Views.MessageIndex = Backbone.CompositeView.extend({
     this.listenTo(this.model.receivedMessages, "sync add remove", this.render);
     this.listenTo(this.model.sentMessages, "sync add remove", this.render);
 
-    this.listenTo(this.model.receivedMessages, "add", this.addReceivedMessage);
+    this.listenTo(this.model.sentMessages, "add", this.addSentMessage);
     this.listenTo(this.model.sentMessages, "remove", this.removeSentMessage);
   },
 
@@ -18,7 +18,7 @@ EventSurfing.Views.MessageIndex = Backbone.CompositeView.extend({
       ".message-index-left",
       new EventSurfing.Views.ReceivedMessage({
         model: message,
-        messageList: this.model.receivedMessages
+        messageList: this.model.sentMessages
       })
     );
   },
