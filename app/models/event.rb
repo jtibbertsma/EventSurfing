@@ -22,7 +22,7 @@ class Event < ActiveRecord::Base
 
   has_one :background, class_name: :Image, as: :imageable, dependent: :destroy
 
-  validates :organizer, :title, :description, :start_time, :location, presence: true
+  validates :organizer, :title, :description, :start_time, :location, :location_id, presence: true
 
   after_save :default_background
   after_save :join_organizer

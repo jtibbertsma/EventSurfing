@@ -1,5 +1,6 @@
 EventSurfing.Views.SentMessage = Backbone.View.extend({
   template: JST["messages/sent"],
+  className: "message-list-item",
 
   initialize: function () {
     this.listenTo(this.model, "sync", this.render);

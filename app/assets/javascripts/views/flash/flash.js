@@ -18,7 +18,6 @@ EventSurfing.Views.Flash = Backbone.View.extend({
 
     this.flashTitle    = options.flashTitle;
     this.messages      = options.messages;
-    this.singleMessage = options.singleMessage;
 
     $("#flash").html(this.render().$el);
   },
@@ -50,8 +49,7 @@ EventSurfing.Views.Flash = Backbone.View.extend({
 
     this.$el.html(this.template({
       flashTitle: this.flashTitle,
-      messages: this.messages,
-      singleMessage: this.singleMessage
+      messages: this.messages
     }));
 
     this.fadeIn();

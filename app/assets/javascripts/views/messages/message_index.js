@@ -18,7 +18,7 @@ EventSurfing.Views.MessageIndex = Backbone.CompositeView.extend({
       ".message-index-left",
       new EventSurfing.Views.ReceivedMessage({
         model: message,
-        messageList: this.model.receivedMessages;
+        messageList: this.model.receivedMessages
       })
     );
   },

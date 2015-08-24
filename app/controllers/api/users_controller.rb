@@ -3,9 +3,6 @@ class Api::UsersController < Api::ApiController
 
   def show
     @user = User.find(params[:id])
-    unless @user
-      render json: {}, status: :not_found
-    end
   end
 
   def update
@@ -15,7 +12,7 @@ class Api::UsersController < Api::ApiController
     @user.location = location if location
     if @user.update(user_params)
       Image.create(image_params)
-      render json: @user
+      render :show
     else
       render json: @user.errors.full_messages, status: :unprocessable_entity
     end

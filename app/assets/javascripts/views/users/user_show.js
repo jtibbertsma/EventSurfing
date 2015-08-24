@@ -36,11 +36,11 @@ EventSurfing.Views.UserShow = Backbone.CompositeView.extend({
       ".user-show-main",
       new EventSurfing.Views.MessageIndex({ model: this.model })
     );
-    this.$(".show-messages")
-      .addClass(".close-messages")
-      .removeClass(".show-messages")
+    this.$(".open-messages")
+      .addClass("close-messages")
+      .removeClass("open-messages")
       .text("Hide Messages");
-    this.render();
+    this.attachSubviews();
   },
 
   hideMessages: function () {
@@ -50,10 +50,10 @@ EventSurfing.Views.UserShow = Backbone.CompositeView.extend({
       new EventSurfing.Views.UserShowAbout({ model: this.model })
     );
     this.$(".close-messages")
-      .addClass(".show-messages")
-      .removeClass(".close-messages")
+      .addClass("open-messages")
+      .removeClass("close-messages")
       .text("View Messages");
-    this.render();
+    this.attachSubviews();
   },
 
   render: function () {

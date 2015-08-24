@@ -7,9 +7,6 @@ class Api::EventsController < Api::ApiController
 
   def show
     @event = Event.includes(:organizer, :location).find(params[:id])
-    unless @event
-      render json: {}, status: :not_found
-    end
   end
 
   def create
@@ -19,7 +16,7 @@ class Api::EventsController < Api::ApiController
     @event.location = location
     if @event.save
       Image.create(image_params)   # Just ignore if unsuccessful
-      render json: @event
+      render :show
     else
       render json: @event.errors.full_messages, status: :unprocessable_entity
     end
@@ -32,7 +29,7 @@ class Api::EventsController < Api::ApiController
     @event.location = location unless location.place_id.empty?
     if @event.update(event_params)
       Image.create(image_params)   # Just ignore if unsuccessful
-      render json: @event
+      render :show
     else
       render json: @event.errors.full_messages, status: :unprocessable_entity
     end

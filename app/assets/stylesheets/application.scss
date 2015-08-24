@@ -347,6 +347,10 @@ body {
   float: left;
 }
 
+.message-list-item {
+  border-top: thin #ddd solid;
+}
+
 $bgDefault      : #4e7fb6;
 $bgHighlight    : #7b7aad;
 $colDefault     : #ecf0f1;

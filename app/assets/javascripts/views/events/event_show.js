@@ -38,6 +38,9 @@ EventSurfing.Views.EventShow = Backbone.CompositeView.extend({
     this.model.destroy({
       success: function () {
         Backbone.history.navigate("#events", { trigger: true });
+        new EventSurfing.Views.Flash({
+          flashTitle: "Event Successfully Deleted"
+        });
       }
     });
   },
