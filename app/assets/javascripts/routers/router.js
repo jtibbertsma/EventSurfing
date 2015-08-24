@@ -16,11 +16,17 @@ EventSurfing.Routers.Router = Backbone.Router.extend({
     var user = new EventSurfing.Models.User({ id: id });
     user.fetch({
       error: function () {
-        alert("Shit went wrong in user show");
-      }
+        new EventSurfing.Views.Flash({
+          isError: true,
+          singleMessage: "User not found"
+        });
+      },
+
+      success: function () {
+        var view = new EventSurfing.Views.UserShow({ model: user });
+        this._swapView(view);
+      }.bind(this)
     });
-    var view = new EventSurfing.Views.UserShow({ model: user });
-    this._swapView(view);
   },
 
   redirect: function () {
@@ -33,23 +39,34 @@ EventSurfing.Routers.Router = Backbone.Router.extend({
       url: "/api/dashboard",
 
       error: function () {
-        alert("Shit went wrong in dashboard")
-      }
-    });
+        new EventSurfing.Views.Flash({
+          isError: true,
+          singleMessage: "User not found"
+        });
+      },
 
-    var view = new EventSurfing.Views.UserShow({ model: user });
-    this._swapView(view);
+      success: function () {
+        var view = new EventSurfing.Views.UserShow({ model: user });
+        this._swapView(view);
+      }.bind(this)
+    });
   },
 
   eventsIndex: function () {
     var events = new EventSurfing.Collections.Events();
     events.fetch({
       error: function () {
-        alert("Shit went wrong in events index");
-      }
+        new EventSurfing.Views.Flash({
+          isError: true,
+          singleMessage: "Error looking up events"
+        });
+      },
+
+      success: function () {
+        var view = new EventSurfing.Views.EventsIndex({ collection: events });
+        this._swapView(view);
+      }.bind(this)
     });
-    var view = new EventSurfing.Views.EventsIndex({ collection: events });
-    this._swapView(view);
   },
 
   eventNew: function () {
@@ -63,11 +80,17 @@ EventSurfing.Routers.Router = Backbone.Router.extend({
     var eventModel = new EventSurfing.Models.Event({ id: id });
     eventModel.fetch({
       error: function () {
-        alert("Shit went wrong in event show");
-      }
+        new EventSurfing.Views.Flash({
+          isError: true,
+          singleMessage: "Event not found"
+        });
+      },
+
+      success: function () {
+        var view = new EventSurfing.Views.EventShow({ model: eventModel });
+        this._swapView(view);
+      }.bind(this)
     });
-    var view = new EventSurfing.Views.EventShow({ model: eventModel });
-    this._swapView(view);
   },
 
   _swapView: function (view) {
