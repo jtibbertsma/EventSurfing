@@ -13,7 +13,7 @@ EventSurfing.Views.Flash = Backbone.View.extend({
     if (options.isError) {
       this.$el.addClass("alert-danger");
     } else {
-      this.$el.addClass("alert-warning");
+      this.$el.addClass("alert-success");
     }
 
     this.flashTitle    = options.flashTitle;

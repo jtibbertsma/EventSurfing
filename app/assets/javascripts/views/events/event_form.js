@@ -10,6 +10,8 @@ EventSurfing.Views.EventForm = Backbone.View.extend({
     this.listenTo(this.model, "sync", this.render);
     this.errorTitle = this.model.isNew() ? "Couldn't Create Event"
                                          : "Couldn't Edit Event";
+    this.successMessage = this.model.isNew() ? "Event Successfully Created!":
+                                            "Event Successfully Edited!";
   },
 
   render: function () {
@@ -104,6 +106,9 @@ EventSurfing.Views.EventForm = Backbone.View.extend({
           Backbone.history.navigate("#events/" + this.model.id, { trigger: true });
         }.bind(this));
         this.hideModal();
+        new EventSurfing.Views.Flash({
+          flashTitle: this.successMessage
+        });
       }.bind(this)
     });
   }

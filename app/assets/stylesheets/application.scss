@@ -36,7 +36,7 @@ body {
 
 #flash {
   position: fixed;
-  top: 50px;
+  top: 70px;
   left: 30%;
   right: 30%;
   z-index: 4000;
@@ -55,6 +55,11 @@ body {
         outline: none;
       }
     }
+  }
+  > .alert-success {
+    background: #CEE5F3;
+    color: #318EC4;
+    border: thin #3B98CE solid;
   }
 }
 
@@ -111,7 +116,7 @@ body {
 
 .btn.btn-default.cool-button.open-messages {
   width: 150px;
-  margin-left: 50px;
+  margin-left: 20px;
 }
 
 .btn.btn-default.edit {
@@ -296,15 +301,17 @@ body {
 }
 
 .avatar-holder {
+  top: 75px;
+  position: fixed;
   background: #DDD;
   background-size: cover;
-  height: 200px;
-  width: 200px;
+  height: 256px;
+  width: 256px;
   border: thin black solid;
   margin-bottom: 20px;
 }
 
-.avatar-text {
+/*.avatar-text {
   position: relative;
   top: 80%;
   color: white;
@@ -319,7 +326,7 @@ body {
     font-size: 18px;
     font-weight: 400;
   }
-}
+}*/
 
 .attender-text {
   margin-left: 62px;
@@ -348,6 +355,8 @@ $colHighlight   : #ecdbff;
   background: linear-gradient(to bottom,#27709b 0,#24688f 100%);
   background-color: $bgDefault;
   border-color: $bgHighlight;
+  height: 60px;
+  padding-top: 5px;
   .navbar-brand {
     font-family: 'Crafty Girls', cursive;
     font-size: 30px;

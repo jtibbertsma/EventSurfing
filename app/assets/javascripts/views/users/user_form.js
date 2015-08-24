@@ -79,6 +79,9 @@ EventSurfing.Views.UserForm = Backbone.View.extend({
       success: function () {
         this.model.avatar = avatar;
         this.hideModal();
+        new EventSurfing.Views.Flash({
+          flashTitle: "Profile Edited!"
+        });
       }.bind(this)
     });
   }
