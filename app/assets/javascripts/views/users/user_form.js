@@ -67,8 +67,13 @@ EventSurfing.Views.UserForm = Backbone.View.extend({
     formData = this.parseLocation(formData);
 
     this.model.save(formData, {
-      error: function () {
-        console.log("Error in editing user");
+      error: function (data, response) {
+        var messages = JSON.parse(response.responseText);
+        new EventSurfing.Views.Flash({
+          isError: true,
+          messages: messages,
+          flashTitle: "Couldn't Edit Profile"
+        });
       },
 
       success: function () {

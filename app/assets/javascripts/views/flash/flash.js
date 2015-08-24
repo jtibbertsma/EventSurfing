@@ -13,9 +13,10 @@ EventSurfing.Views.Flash = Backbone.View.extend({
     if (options.isError) {
       this.$el.addClass("alert-danger");
     } else {
-      this.$el.addClass("alert-success");
+      this.$el.addClass("alert-warning");
     }
 
+    this.flashTitle = options.flashTitle;
     this.messages = options.messages;
     this.singleMessage = options.singleMessage;
 
@@ -26,8 +27,17 @@ EventSurfing.Views.Flash = Backbone.View.extend({
     this.remove();
   },
 
+  fadeIn: function () {
+    this.$el.css("opacity", "0");
+    this.$el.css("transition", "opacity 750ms");
+    setTimeout(function () {
+      this.$el.css("opacity", "0.95");
+    }.bind(this), 0);
+  },
+
   fadeOut: function () {
-    $("#flash > div").css("opacity", "0");
+    this.$el.css("transition", "opacity 3s");
+    this.$el.css("opacity", "0");
     setTimeout(function () {
       this.remove();
     }.bind(this), 3050);
@@ -36,12 +46,16 @@ EventSurfing.Views.Flash = Backbone.View.extend({
   render: function () {
     setTimeout(function () {
       this.fadeOut();
-    }.bind(this), 5000);
+    }.bind(this), 4000);
 
     this.$el.html(this.template({
+      flashTitle: this.flashTitle,
       messages: this.messages,
       singleMessage: this.singleMessage
     }));
+
+    this.fadeIn();
+
     return this;
   }
 });

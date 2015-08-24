@@ -8,6 +8,8 @@ EventSurfing.Views.EventForm = Backbone.View.extend({
 
   initialize: function () {
     this.listenTo(this.model, "sync", this.render);
+    this.errorTitle = this.model.isNew() ? "Couldn't Create Event"
+                                         : "Couldn't Edit Event";
   },
 
   render: function () {
@@ -88,9 +90,14 @@ EventSurfing.Views.EventForm = Backbone.View.extend({
     formData = this.parseTimes(formData);
 
     this.model.save(formData, {
-      error: function () {
-        console.log("Error in creating event");
-      },
+      error: function (data, response) {
+        var messages = JSON.parse(response.responseText);
+        new EventSurfing.Views.Flash({
+          isError: true,
+          messages: messages,
+          flashTitle: this.errorTitle
+        });
+      }.bind(this),
 
       success: function () {
         $('.modal').one("hidden.bs.modal", function () {

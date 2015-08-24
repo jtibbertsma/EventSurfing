@@ -6,6 +6,10 @@
   <span aria-hidden="true">&times;</span>
 </button>
 
+<% if (flashTitle) { %>
+  <h3><%= flashTitle %></h3>
+<% } %>
+
 <% if (messages) { %>
   <ul>
     <% messages.forEach(function (message) { %>

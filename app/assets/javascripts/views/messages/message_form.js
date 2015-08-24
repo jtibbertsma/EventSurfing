@@ -12,7 +12,20 @@ EventSurfing.Views.MessageForm = Backbone.View.extend({
 
     var message = new EventSurfing.Models.Message();
     message.save(formData, {
+      error: function (data, response) {
+        var messages = JSON.parse(response.responseText);
+        new EventSurfing.Views.Flash({
+          isError: true,
+          messages: messages,
+          flashTitle: "Couldn't Send Message"
+        });
+      },
+
       success: function () {
+        new EventSurfing.Views.Flash({
+          flashTitle: "Message sent!"
+        });
+
         this.hideModal();
       }.bind(this)
     })
