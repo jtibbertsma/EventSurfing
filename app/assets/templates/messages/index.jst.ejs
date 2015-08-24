@@ -2,7 +2,14 @@
 
 <div class="container-fluid">
   <div class="row">
-    <div class="col-xs-6 message-index-left"></div>
-    <div class="col-xs-6 message-index-right"></div>
+    <div class="col-xs-6">
+      <h3>Received (<%= user.receivedMessages.length %>)</h3>
+      <div class="message-index-left"></div>
+    </div>
+
+    <div class="col-xs-6">
+      <h3>Sent (<%= user.sentMessages.length %>)</h3>
+      <div class="message-index-right"></div>
+    </div>
   </div>
 </div>
