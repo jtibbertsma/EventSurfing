@@ -30,6 +30,10 @@ body {
   background-attachment: fixed;
 }
 
+.progress {
+  cursor: progress;
+}
+
 #flash {
   position: fixed;
   top: 50px;

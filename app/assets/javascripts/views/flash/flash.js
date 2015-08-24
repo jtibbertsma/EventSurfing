@@ -16,8 +16,8 @@ EventSurfing.Views.Flash = Backbone.View.extend({
       this.$el.addClass("alert-warning");
     }
 
-    this.flashTitle = options.flashTitle;
-    this.messages = options.messages;
+    this.flashTitle    = options.flashTitle;
+    this.messages      = options.messages;
     this.singleMessage = options.singleMessage;
 
     $("#flash").html(this.render().$el);
