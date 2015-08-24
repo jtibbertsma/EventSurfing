@@ -35,6 +35,11 @@ EventSurfing.Views.EventForm = Backbone.View.extend({
     data.event.start_time = moment(
       new Date(data.start_time.date + ' ' + data.start_time.time)
     ).format();
+
+    if (data.end_time.time && !data.end_time.date) {
+      data.end_time.date = data.start_time.date;
+    }
+
     data.event.end_time = moment(
       new Date(data.end_time.date + ' ' + data.end_time.time)
     ).format();

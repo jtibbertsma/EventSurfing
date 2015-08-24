@@ -1,0 +1,17 @@
+<button
+  type="button"
+  class="close"
+  aria-label="Close"
+>
+  <span aria-hidden="true">&times;</span>
+</button>
+
+<% if (messages) { %>
+  <ul>
+    <% messages.forEach(function (message) { %>
+      <li><%= message %></li>
+    <% }) %>
+  </ul>
+<% } else if (singleMessage) { %>
+  <p><%= singleMessage %>
+<% } %>

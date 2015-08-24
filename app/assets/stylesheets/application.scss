@@ -30,6 +30,26 @@ body {
   background-attachment: fixed;
 }
 
+#flash {
+  position: fixed;
+  top: 100px;
+  left: 30%;
+  right: 30%;
+  z-index: 4000;
+  > div {
+    box-shadow: -10px 14px 26px 4px rgba(61, 26, 20, 0.86);
+    transition: opacity 3s;
+    > ul {
+      margin-left: 20px;
+    }
+    > .close {
+      &:focus {
+        outline: none;
+      }
+    }
+  }
+}
+
 .splash-text {
   text-align: center;
   color: #ED4C07;
