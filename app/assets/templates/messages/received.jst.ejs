@@ -1,0 +1,8 @@
+<p class="message-header"><%= message.escape("subject") %></p>
+<p class="message-header">Sender: <%= message.escape("sender_name") %></p>
+<p class="message-header"><%= message.escape("updated_at") %></p>
+<p class="message-content"><%= message.escape("content") %></p>
+
+<div class="message-buttons clearfix">
+  <button class="btn btn-default cool-button reply">Reply</button>
+</div>

@@ -25,7 +25,12 @@ EventSurfing.Views.UserShow = Backbone.CompositeView.extend({
   },
 
   openMessageForm: function () {
-    var view = new EventSurfing.Views.MessageForm({ model: this.model });
+    var message = new EventSurfing.Models.Message();
+    message.set({
+      recipient_name: this.model.get("name"),
+      recipient_id: this.model.id
+    });
+    var view = new EventSurfing.Views.MessageForm({ model: message });
 
     new EventSurfing.Views.Modal({ subview: view });
   },

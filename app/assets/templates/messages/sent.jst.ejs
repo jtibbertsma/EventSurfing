@@ -1,1 +1,9 @@
-<p>Message goes here</p>
+<p class="message-header"><%= message.escape("subject") %></p>
+<p class="message-header">Recipient: <%= message.escape("recipient_name") %></p>
+<p class="message-header"><%= message.escape("updated_at") %></p>
+<p class="message-content"><%= message.escape("content") %></p>
+
+<div class="message-buttons clearfix">
+  <button class="btn btn-default cool-button edit">Edit</button>
+  <button class="btn btn-default cool-button delete">Delete</button>
+</div>

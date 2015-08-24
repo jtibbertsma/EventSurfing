@@ -8,10 +8,8 @@ EventSurfing.Views.MessageForm = Backbone.View.extend({
   createMessage: function (event) {
     event.preventDefault();
     var formData = $("form").serializeJSON();
-    formData.message.recipient_id = this.model.id;
 
-    var message = new EventSurfing.Models.Message();
-    message.save(formData, {
+    this.model.save(formData, {
       error: function (data, response) {
         var messages = JSON.parse(response.responseText);
         new EventSurfing.Views.Flash({
@@ -32,7 +30,7 @@ EventSurfing.Views.MessageForm = Backbone.View.extend({
   },
 
   render: function () {
-    this.$el.html(this.template({ user: this.model }));
+    this.$el.html(this.template({ message: this.model }));
     return this;
   }
 });
