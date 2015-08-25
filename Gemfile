@@ -16,6 +16,7 @@ gem 'faker'
 gem 'cloudinary'
 gem 'figaro'
 gem 'rest-client'
+gem 'seed_dump'
 
 group :production do
   gem "rails_12factor"
