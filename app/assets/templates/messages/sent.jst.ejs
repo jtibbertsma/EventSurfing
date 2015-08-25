@@ -1,5 +1,5 @@
 <p class="message-header"><%= message.escape("subject") %></p>
-<p class="message-header">Recipient: <%= message.escape("recipient_name") %></p>
+<p class="message-header">Recipient: <a href="#users/<%= message.escape("recipient_id") %>"><%= message.escape("recipient_name") %></a></p>
 <p class="message-header"><%= message.escape("updated_at") %></p>
 <p class="message-content"><%= message.escape("content") %></p>
 
