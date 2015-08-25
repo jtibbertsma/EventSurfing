@@ -106,7 +106,7 @@ Event.create!([
 Event.find(2).destroy
 Event.find(3).destroy
 
-EventJoin.create!([
+[
   {attender_id: 1, event_id: 1},
   {attender_id: 24, event_id: 4},
   {attender_id: 6, event_id: 5},
@@ -189,7 +189,13 @@ EventJoin.create!([
   {attender_id: 1, event_id: 7},
   {attender_id: 1, event_id: 14},
   {attender_id: 1, event_id: 10}
-])
+].each do |ejoin|
+  begin
+    EventJoin.create(ejoin)
+  rescue
+  end
+end
+
 Image.create!([
   {imageable_id: 19, imageable_type: "User", image_url: "http://res.cloudinary.com/ddd0lawa1/image/upload/v1440477367/gnikjs8zichj3lb9i8dc.jpg", thumb_url: "http://res.cloudinary.com/ddd0lawa1/image/upload/c_limit,h_60,w_90/v1440477367/gnikjs8zichj3lb9i8dc.jpg"},
   {imageable_id: 13, imageable_type: "Event", image_url: "http://res.cloudinary.com/ddd0lawa1/image/upload/v1440477884/p7x3lpkjemhuwpyq7hgk.jpg", thumb_url: "http://res.cloudinary.com/ddd0lawa1/image/upload/c_limit,h_60,w_90/v1440477884/p7x3lpkjemhuwpyq7hgk.jpg"},
