@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
   root to: "root#root"
 
+  get 'guest', to: 'guest#guest'
+
   resource :session, only: [:new, :create, :destroy]
   resources :users, only: [:new, :create]
 
