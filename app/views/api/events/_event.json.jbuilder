@@ -16,7 +16,7 @@ unless bare_bones
   json.spots event.spots
 
   json.background do
-    json.extract! event.background, :image_url, :thumb_url
+    json.extract! event.background || Image.first, :image_url, :thumb_url
   end
 
   json.description event.description

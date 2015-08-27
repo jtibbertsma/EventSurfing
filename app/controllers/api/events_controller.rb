@@ -15,7 +15,8 @@ class Api::EventsController < Api::ApiController
     @event = Event.new(event_params)
     @event.location = location
     if @event.save
-      Image.create(image_params)   # Just ignore if unsuccessful
+      i = Image.create(image_params)   # Just ignore if unsuccessful
+      #fail
       render :show
     else
       render json: @event.errors.full_messages, status: :unprocessable_entity
