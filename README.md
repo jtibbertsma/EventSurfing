@@ -14,6 +14,3 @@ EventSurfing is a clone of CouchSurfing built on Rails and Backbone. Users can:
 - [x] Create events
 - [x] Join events
 - [x] Send and Receive messages
-
-## Todo
-Write readme. I will do this. Just not right now.
