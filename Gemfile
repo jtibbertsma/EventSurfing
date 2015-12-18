@@ -31,4 +31,5 @@ group :development, :test do
   gem 'binding_of_caller'
   gem 'annotate'
   gem 'bullet'
+  gem 'router-visualizer'
 end
