@@ -14,7 +14,7 @@
 #
 
 class User < ActiveRecord::Base
-  has_many :organized_events, class_name: :Event, foreign_key: :organizer_id
+  has_many :organized_events, class_name: :Event, foreign_key: :organizer_id, dependent: :destroy
   has_many :event_joins, foreign_key: :attender_id, dependent: :destroy
   has_many :joined_events, through: :event_joins, source: :event
 
