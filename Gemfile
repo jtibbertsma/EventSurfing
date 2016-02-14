@@ -1,5 +1,7 @@
 source 'https://rubygems.org'
-
+File.open('.ruby-version') do |f|
+  ruby f.read.strip
+end
 
 gem 'rails', '4.2.3'
 gem 'pg'
@@ -20,7 +22,8 @@ gem 'seed_dump'
 gem 'router-visualizer'
 
 group :production do
-  gem "rails_12factor"
+  gem 'rails_12factor'
+  gem 'puma'
 end
 
 group :development, :test do
