@@ -15,7 +15,5 @@ Rails.application.routes.draw do
     resources :messages, only: [:create, :update, :destroy]
   end
 
-  if Rails.env.development?
-    mount RouterVisualizer::Engine, at: "routes"
-  end
+  visualize
 end
