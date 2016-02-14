@@ -17,6 +17,7 @@ gem 'cloudinary'
 gem 'figaro'
 gem 'rest-client'
 gem 'seed_dump'
+gem 'router-visualizer'
 
 group :production do
   gem "rails_12factor"
@@ -31,5 +32,4 @@ group :development, :test do
   gem 'binding_of_caller'
   gem 'annotate'
   gem 'bullet'
-  gem 'router-visualizer'
 end
