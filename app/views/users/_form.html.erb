@@ -57,10 +57,12 @@
           class="btn btn-default"
         >
 
+        <%= link_to "Sign in as Guest", guest_url, class: "btn btn-info" %>
+
   </form>
 
   <% unless new_user %>
-    <p>New user? Sign up <%= link_to "here", new_user_url %>!</p>
+    <p class="little-pad">New user? Sign up <%= link_to "here", new_user_url %>!</p>
   <% end %>
       </div>
     </div>
