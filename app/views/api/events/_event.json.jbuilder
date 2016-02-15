@@ -11,13 +11,12 @@ unless join.nil?
 end
 
 json.extract! event.location, :formatted_address, :lat, :lng
+json.background do
+  json.extract! event.background || Image.first, :image_url, :thumb_url
+end
 
 unless bare_bones
   json.spots event.spots
-
-  json.background do
-    json.extract! event.background || Image.first, :image_url, :thumb_url
-  end
 
   json.description event.description
   json.organizer_name event.organizer.name
