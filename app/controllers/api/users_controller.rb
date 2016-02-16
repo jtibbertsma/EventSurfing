@@ -19,12 +19,11 @@ class Api::UsersController < Api::ApiController
   end
 
   private
+    def user_params
+      params.require(:user).permit(:name, :email, :description_head)
+    end
 
-  def user_params
-    params.require(:user).permit(:name, :email, :description_head)
-  end
-
-  def image_params
-    params.permit(:image_url, :thumb_url).merge(imageable: @user)
-  end
+    def image_params
+      params.permit(:image_url, :thumb_url).merge(imageable: @user)
+    end
 end

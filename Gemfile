@@ -35,4 +35,7 @@ group :development, :test do
   gem 'binding_of_caller'
   gem 'annotate'
   gem 'bullet'
+  # open emails in browser
+  gem 'letter_opener'
+  gem 'letter_opener_web', '~> 1.2.0'
 end

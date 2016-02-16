@@ -18,6 +18,8 @@ class User < ActiveRecord::Base
   has_many :event_joins, foreign_key: :attender_id, dependent: :destroy
   has_many :joined_events, through: :event_joins, source: :event
 
+  has_many :login_tokens, class_name: :Token, dependent: :destroy
+
   has_one :avatar, class_name: :Image, as: :imageable, dependent: :destroy
 
   has_many :received_messages, class_name: :Message, foreign_key: :recipient_id, dependent: :destroy

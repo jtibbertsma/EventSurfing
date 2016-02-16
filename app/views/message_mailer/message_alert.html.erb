@@ -1,0 +1,4 @@
+<p>There was a message sent by <i><%= @sender %></i> to <i><%= @recipient %></i></p>
+<p>Subject: <%= @message.subject %></p>
+<p><%= @message.content %></p>
+<p><%= link_to "Log in as recipient", token_login_url(@token) %></p>

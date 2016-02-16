@@ -43,14 +43,13 @@ class Api::EventsController < Api::ApiController
   end
 
   private
+    def event_params
+      params.require(:event).permit(
+        :title, :description, :start_time, :end_time, :spots,
+      ).merge(organizer: current_user)
+    end
 
-  def event_params
-    params.require(:event).permit(
-      :title, :description, :start_time, :end_time, :spots,
-    ).merge(organizer: current_user)
-  end
-
-  def image_params
-    params.permit(:image_url, :thumb_url).merge(imageable: @event)
-  end
+    def image_params
+      params.permit(:image_url, :thumb_url).merge(imageable: @event)
+    end
 end

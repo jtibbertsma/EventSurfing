@@ -16,4 +16,8 @@ class Message < ActiveRecord::Base
   belongs_to :sender, class_name: :User
 
   validates :sender, :recipient, :content, presence: true
+
+  def sent_by_joseph?
+    sender.email == "email@email.com"
+  end
 end
