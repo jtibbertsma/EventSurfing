@@ -50,6 +50,7 @@ EventSurfing.Views.EventShow = Backbone.CompositeView.extend({
   },
 
   render: function () {
+    scrollTo(0, 0);
     this.$el.html(this.template({ event: this.model }));
     this.attachSubviews();
 
