@@ -44,7 +44,7 @@ EventSurfing.Routers.Router = Backbone.Router.extend({
   },
 
   redirect: function () {
-    Backbone.history.navigate("#dashboard", { trigger: true });
+    Backbone.history.navigate("#events", { trigger: true });
   },
 
   dashboard: function () {
